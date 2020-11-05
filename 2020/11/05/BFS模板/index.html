@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">n皇后问题 | sunwarm</title>
+  <title itemprop="name">BFS模板 | sunwarm</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -386,11 +386,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/12.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/12.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/53.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/53.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      n皇后问题</h1>
+      BFS模板</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -420,7 +420,7 @@
 <p>解决问题：最优解问题，如最短路径  </p>
 </blockquote>
 <hr>
-<h5 id="BFS思路：队列queue"><a href="#BFS思路：队列queue" class="headerlink" title="BFS思路：队列queue"></a>BFS思路：队列queue</h5><pre><code>初始化队列Q
+<h3 id="BFS思路：队列queue"><a href="#BFS思路：队列queue" class="headerlink" title="BFS思路：队列queue"></a>BFS思路：队列queue</h3><pre><code>初始化队列Q
 Q=&#123;起点s&#125;
 标记起点s已被访问
 while (Q非空)
@@ -435,7 +435,7 @@ while (Q非空)
     &#125;
 &#125;</code></pre>
 <hr>
-<h5 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h5><p>走迷宫：给定一个N*M方格的迷宫，其中<code>.</code>代表可通过，<code>*</code>代表障碍物。问: 每个方格最多经过1次，有多少种从<strong>左上角</strong>到<strong>右下角</strong>的方案。在迷宫中移动有上下左右四种方式，每次只能移动一个方格。数据保证起点上没有障碍。</p>
+<h3 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h3><p>走迷宫：给定一个N*M方格的迷宫，其中<code>.</code>代表可通过，<code>*</code>代表障碍物。问: 每个方格最多经过1次，有多少种从<strong>左上角</strong>到<strong>右下角</strong>的方案。在迷宫中移动有上下左右四种方式，每次只能移动一个方格。数据保证起点上没有障碍。</p>
 <pre><code>#include&lt;iostream&gt;
 #include&lt;queue&gt;
 using namespace std;
@@ -531,13 +531,13 @@ int main()
           
             <a href="/2020/11/05/DFS%E6%A8%A1%E6%9D%BF/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/13.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/13.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/51.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/51.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                n皇后问题</h3>
+                DFS模板</h3>
                 <hr>
               </div>
             </a>

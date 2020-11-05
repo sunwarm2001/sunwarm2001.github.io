@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">n皇后问题 | sunwarm</title>
+  <title itemprop="name">DFS模板 | sunwarm</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -386,11 +386,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/13.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/13.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/51.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/51.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      n皇后问题</h1>
+      DFS模板</h1>
       <p class="entry-census">
         <span>
           <a href="">
@@ -416,11 +416,11 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="DFS模板"><a href="#DFS模板" class="headerlink" title="DFS模板"></a>DFS模板</h2><h5 id="DFS模板-1"><a href="#DFS模板-1" class="headerlink" title="DFS模板"></a>DFS模板</h5><blockquote>
+          <h2 id="DFS模板"><a href="#DFS模板" class="headerlink" title="DFS模板"></a>DFS模板</h2><blockquote>
 <p>解决问题：所有解问题，或连通性问题</p>
 </blockquote>
 <hr>
-<h5 id="DFS思路：递归"><a href="#DFS思路：递归" class="headerlink" title="DFS思路：递归"></a>DFS思路：递归</h5><pre><code>void dfs(int step)
+<h3 id="DFS思路：递归"><a href="#DFS思路：递归" class="headerlink" title="DFS思路：递归"></a>DFS思路：递归</h3><pre><code>void dfs(int step)
 &#123;
     判断边界if()
     &#123;
@@ -435,42 +435,100 @@
     &#125;
 &#125;</code></pre>
 <hr>
-<h5 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h5><ol>
-<li>全排列：输出自然数 1 到 n 所有不重复的排列，即 n 的全排列，要求所产生的任一数字序列中不允许出现重复的数字</li>
-</ol>
-<ul>
-<li>递归实现<pre><code>#include&lt;iostream&gt;
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>全排列：输出自然数 1 到 n 所有不重复的排列，即 n 的全排列，要求所产生的任一数字序列中不允许出现重复的数字<br><br>①递归实现</p>
+<pre><code>#include&lt;iostream&gt;
 using namespace std;
 const int N = 10;
 int num[N],n;
 bool vis[N];
-</code></pre>
-</li>
-</ul>
-<p>void dfs(int u)<br>{<br>    if (u &gt; n)<br>    {<br>        for (int i = 1; i &lt;= n; i++)<br>            cout &lt;&lt; num[i] &lt;&lt; ‘ ‘;<br>        cout &lt;&lt; endl;<br>        return;<br>    }<br>    for (int i = 1; i &lt;= n; i++) {<br>        if (!vis[i]) {<br>            num[u] = i;<br>            vis[i] = true;<br>            dfs(u + 1);<br>            vis[i] = false;<br>        }<br>    }<br>    return;<br>}<br>int main()<br>{<br>    cin &gt;&gt; n;<br>    dfs(1);</p>
-<pre><code>return 0;</code></pre>
-<p>}</p>
-<pre><code>- 借助STL的next_permutation(arr, arr + size)来实现;</code></pre>
-<p>//STL中的next_permutation(arr, arr + size);<br>#include<iostream><br>#include<algorithm><br>#include<vector><br>using namespace std;<br>int main()<br>{<br>    int n;<br>    vector<int> v;<br>    cin&gt;&gt;n;<br>    for(int i=1;i&lt;=n;i++)<br>        v.push_back(i);<br>    //若用while()语句则直接执行next_permutation（）函数，会少初始情况<br>    do<br>    {<br>        for(auto x:v)<br>            cout&lt;&lt;x&lt;&lt;’ ‘;<br>        cout&lt;&lt;endl;<br>    }while(next_permutation(v.begin(),v.end()));    //记得有分号<br>    return 0;<br>}</p>
-<pre><code>&lt;br&gt;
-&lt;br&gt;
-2. n皇后问题：在一个N*N的棋盘上放置N个皇后，使这N个皇后不能在同一行、同一列、同一斜线上。
-&lt;br&gt;
-&lt;br&gt;</code></pre>
-<p>#include<iostream><br>using namespace std;<br>int n;<br>const int Max = 100;            //注意把数组开大：因为后面有b[row-j+n]，不开大可能超出数组范围。<br>bool col[Max], a[Max], b[Max];    //col：列，a：斜线，b：斜线<br>char re[Max][Max];<br>void dfs(int row)<br>{<br>    if (row == n)<br>    {<br>        for (int j = 0; j &lt; n; j++)<br>            cout &lt;&lt; re[j]&lt;&lt;endl;<br>        cout &lt;&lt; endl;<br>        return;<br>    }</p>
-<pre><code>for (int j = 0; j &lt; n; j++)
+
+void dfs(int u)
 &#123;
-    if (!col[j] &amp;&amp; !a[row + j] &amp;&amp; !b[row-j + n])    //b[row-j+n]加了n之后，row-j+n和j-row+n效果一样
+    if (u &gt; n)
     &#123;
-        re[row][j] = &#39;Q&#39;;
-        col[j] = a[row + j] = b[row-j + n] = true;
-        dfs(row + 1);
-        col[j] = a[row + j] = b[row-j + n] = false;
-        re[row][j] = &#39;.&#39;;                            //别忘记复原
+        for (int i = 1; i &lt;= n; i++)
+            cout &lt;&lt; num[i] &lt;&lt; &#39; &#39;;
+        cout &lt;&lt; endl;
+        return;
     &#125;
+    for (int i = 1; i &lt;= n; i++) &#123;
+        if (!vis[i]) &#123;
+            num[u] = i;
+            vis[i] = true;
+            dfs(u + 1);                                                                                    
+            vis[i] = false;
+        &#125;
+    &#125;
+    return;
 &#125;
-return;</code></pre>
-<p>}<br>int main()<br>{<br>    cin &gt;&gt; n;<br>    for (int i = 0; i &lt; n; i++)<br>        for (int j = 0; j &lt; n; j++)<br>            re[i][j] = ‘.’;<br>    dfs(0);<br>    return 0;<br>}<br>```</p>
+int main()
+&#123;
+    cin &gt;&gt; n;
+    dfs(1);
+
+    return 0;
+&#125;</code></pre>
+<p>②借助STL的next_permutation(arr, arr + size)来实现;</p>
+<pre><code>//STL中的next_permutation(arr, arr + size);
+#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+using namespace std;
+int main()
+&#123;
+    int n;
+    vector&lt;int&gt; v;
+    cin&gt;&gt;n;
+    for(int i=1;i&lt;=n;i++)
+        v.push_back(i);
+    //若用while()语句则直接执行next_permutation（）函数，会少初始情况
+    do
+    &#123;
+        for(auto x:v)
+            cout&lt;&lt;x&lt;&lt;&#39; &#39;;
+        cout&lt;&lt;endl;
+    &#125;while(next_permutation(v.begin(),v.end()));    //记得有分号
+    return 0;
+&#125;</code></pre>
+<p>n皇后问题：在一个N*N的棋盘上放置N个皇后，使这N个皇后不能在同一行、同一列、同一斜线上。</p>
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+int n;
+const int Max = 100;            //注意把数组开大：因为后面有b[row-j+n]，不开大可能超出数组范围。
+bool col[Max], a[Max], b[Max];    //col：列，a：斜线，b：斜线
+char re[Max][Max];
+void dfs(int row)
+&#123;
+    if (row == n)
+    &#123;
+        for (int j = 0; j &lt; n; j++)
+            cout &lt;&lt; re[j]&lt;&lt;endl;
+        cout &lt;&lt; endl;
+        return;
+    &#125;
+
+    for (int j = 0; j &lt; n; j++)
+    &#123;
+        if (!col[j] &amp;&amp; !a[row + j] &amp;&amp; !b[row-j + n])    //b[row-j+n]加了n之后，row-j+n和j-row+n效果一样
+        &#123;
+            re[row][j] = &#39;Q&#39;;
+            col[j] = a[row + j] = b[row-j + n] = true;
+            dfs(row + 1);
+            col[j] = a[row + j] = b[row-j + n] = false;
+            re[row][j] = &#39;.&#39;;                            //别忘记复原
+        &#125;
+    &#125;
+    return;
+&#125;
+int main()
+&#123;
+    cin &gt;&gt; n;
+    for (int i = 0; i &lt; n; i++)
+        for (int j = 0; j &lt; n; j++)
+            re[i][j] = &#39;.&#39;;
+    dfs(0);
+    return 0;
+&#125;</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -504,13 +562,13 @@ return;</code></pre>
           
             <a href="/2020/11/05/BFS%E6%A8%A1%E6%9D%BF/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/12.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/12.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/53.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/53.jpg">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                n皇后问题</h3>
+                BFS模板</h3>
                 <hr>
               </div>
             </a>
