@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Hello World | sunwarm</title>
+  <title itemprop="name">n皇后问题 | sunwarm</title>
   
-    <link rel="shortcut icon" href="/image/mywon/5.jpg">
+    <link rel="shortcut icon" href="/images/favicon.ico">
   
   <meta http-equiv="x-dns-prefetch-control" content="on">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
@@ -384,6 +384,30 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/13.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/13.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      n皇后问题</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/1.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="">ranshi</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-11-5<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
@@ -391,23 +415,62 @@
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
-          <header class="entry-header">
-            <h1 class="entry-title">Hello World</h1>
-            <p class="entry-census">&nbsp;·&nbsp;2020-11-5&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
-
-            <hr>
-          </header>
-        
         <div class="entry-content">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+          <h2 id="DFS模板"><a href="#DFS模板" class="headerlink" title="DFS模板"></a>DFS模板</h2><h5 id="DFS模板-1"><a href="#DFS模板-1" class="headerlink" title="DFS模板"></a>DFS模板</h5><blockquote>
+<p>解决问题：所有解问题，或连通性问题</p>
+</blockquote>
+<hr>
+<h5 id="DFS思路：递归"><a href="#DFS思路：递归" class="headerlink" title="DFS思路：递归"></a>DFS思路：递归</h5><pre><code>void dfs(int step)
+&#123;
+    判断边界if()
+    &#123;
+        相应操作
+    &#125;
+        尝试每一种可能for()
+    &#123;
+           满足条件if()
+           标记  == true;
+           继续下一步:dfs(step + 1)
+           恢复初始状态（回溯的时候要用到）
+    &#125;
+&#125;</code></pre>
+<hr>
+<h5 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h5><ol>
+<li>全排列：输出自然数 1 到 n 所有不重复的排列，即 n 的全排列，要求所产生的任一数字序列中不允许出现重复的数字</li>
+</ol>
+<ul>
+<li>递归实现<pre><code>#include&lt;iostream&gt;
+using namespace std;
+const int N = 10;
+int num[N],n;
+bool vis[N];
+</code></pre>
+</li>
+</ul>
+<p>void dfs(int u)<br>{<br>    if (u &gt; n)<br>    {<br>        for (int i = 1; i &lt;= n; i++)<br>            cout &lt;&lt; num[i] &lt;&lt; ‘ ‘;<br>        cout &lt;&lt; endl;<br>        return;<br>    }<br>    for (int i = 1; i &lt;= n; i++) {<br>        if (!vis[i]) {<br>            num[u] = i;<br>            vis[i] = true;<br>            dfs(u + 1);<br>            vis[i] = false;<br>        }<br>    }<br>    return;<br>}<br>int main()<br>{<br>    cin &gt;&gt; n;<br>    dfs(1);</p>
+<pre><code>return 0;</code></pre>
+<p>}</p>
+<pre><code>- 借助STL的next_permutation(arr, arr + size)来实现;</code></pre>
+<p>//STL中的next_permutation(arr, arr + size);<br>#include<iostream><br>#include<algorithm><br>#include<vector><br>using namespace std;<br>int main()<br>{<br>    int n;<br>    vector<int> v;<br>    cin&gt;&gt;n;<br>    for(int i=1;i&lt;=n;i++)<br>        v.push_back(i);<br>    //若用while()语句则直接执行next_permutation（）函数，会少初始情况<br>    do<br>    {<br>        for(auto x:v)<br>            cout&lt;&lt;x&lt;&lt;’ ‘;<br>        cout&lt;&lt;endl;<br>    }while(next_permutation(v.begin(),v.end()));    //记得有分号<br>    return 0;<br>}</p>
+<pre><code>&lt;br&gt;
+&lt;br&gt;
+2. n皇后问题：在一个N*N的棋盘上放置N个皇后，使这N个皇后不能在同一行、同一列、同一斜线上。
+&lt;br&gt;
+&lt;br&gt;</code></pre>
+<p>#include<iostream><br>using namespace std;<br>int n;<br>const int Max = 100;            //注意把数组开大：因为后面有b[row-j+n]，不开大可能超出数组范围。<br>bool col[Max], a[Max], b[Max];    //col：列，a：斜线，b：斜线<br>char re[Max][Max];<br>void dfs(int row)<br>{<br>    if (row == n)<br>    {<br>        for (int j = 0; j &lt; n; j++)<br>            cout &lt;&lt; re[j]&lt;&lt;endl;<br>        cout &lt;&lt; endl;<br>        return;<br>    }</p>
+<pre><code>for (int j = 0; j &lt; n; j++)
+&#123;
+    if (!col[j] &amp;&amp; !a[row + j] &amp;&amp; !b[row-j + n])    //b[row-j+n]加了n之后，row-j+n和j-row+n效果一样
+    &#123;
+        re[row][j] = &#39;Q&#39;;
+        col[j] = a[row + j] = b[row-j + n] = true;
+        dfs(row + 1);
+        col[j] = a[row + j] = b[row-j + n] = false;
+        re[row][j] = &#39;.&#39;;                            //别忘记复原
+    &#125;
+&#125;
+return;</code></pre>
+<p>}<br>int main()<br>{<br>    cin &gt;&gt; n;<br>    for (int i = 0; i &lt; n; i++)<br>        for (int j = 0; j &lt; n; j++)<br>            re[i][j] = ‘.’;<br>    dfs(0);<br>    return 0;<br>}<br>```</p>
 
         </div>
         <!-- .entry-content -->
@@ -436,9 +499,26 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/11/05/BFS%E6%A8%A1%E6%9D%BF/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/12.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/12.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                n皇后问题</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2018/12/12/Hexo-Theme-Sakura/" rel="next">
               <div class="background">
@@ -472,11 +552,11 @@
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/1.jpg" itemprop="image" alt="ranshi" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author"></a>
+            <a href="" itemprop="url" rel="author">ranshi</a>
             </h3>
           </div>
         </div>
