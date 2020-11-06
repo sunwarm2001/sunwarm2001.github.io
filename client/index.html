@@ -18,6 +18,14 @@
   <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
   <link rel="stylesheet" href="/css/zoom.css" media="all">
   <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+  
+  <!-- 自定义logo -->
+  <link rel="stylesheet" type="text/css" href="/css/logo.css">
+  <link rel="stylesheet" type="text/css" href="/fonts/LOGO/logo.css">
+  
+  <!--引入标签云-->
+  <link rel="stylesheet" href="/css/tags.css" media="all">
+
 <!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
 " type="text/css" media="all"> -->
   <script>
@@ -33,11 +41,11 @@
   mashiro_option.email_name = "";
   mashiro_option.cookie_version_control = "";
   mashiro_option.qzone_autocomplete = false;
-  mashiro_option.site_name = "sunwarm美食さん小屋";
-  mashiro_option.author_name = "美食さん小屋";
+  mashiro_option.site_name = "sunwarm美食の小屋";
+  mashiro_option.author_name = "美食の小屋";
   mashiro_option.site_url = "";
-  mashiro_option.v_appId = "U5VwYYeYlmI7C8UuoWxHrDBz-MdYXbMMI";
-  mashiro_option.v_appKey = "SFxC9o4DBWIBfhIBOTHlaXGf";
+  mashiro_option.v_appId = "dquiec0Mu5euKiDRrNaA8chH-gzGzoHsz";
+  mashiro_option.v_appKey = "bwtQQPXTuxXeVnaPsO7S1e2R";
   mashiro_option.mathjax = "0";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
@@ -59,7 +67,7 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
@@ -162,11 +170,17 @@
   <div class="site-top">
     <div class="site-branding">
       <span class="site-title">
-        <span class="logolink moe-mashiro">
-          <a href="/">
-            <span class="sakurasono">sunwarm</span>
-            <span class="shironeko">美食さん小屋</span>
-          </a>
+        <span class="logolink logo">
+            <a href="/">
+                <ruby>
+                <span class="sakuraso">美食</span>
+                <span class="no">の</span>
+                <span class="shironeko">小屋</span>
+                <rp></rp>
+                <rt class="logo">sunwarm</rt>
+                <rp></rp>
+                </ruby>
+              </a>
         </span>
       </span>
     </div>
@@ -206,6 +220,13 @@
                 </a>
                 
                   <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/tags">
+                          <i class="fa fa-tags" aria-hidden="true"></i>
+                          标签
+                        </a>
+                      </li>
                     
                       <li>
                         <a href="/categories/%E6%8A%80%E6%9C%AF/">
@@ -426,11 +447,11 @@
       <!-- #post-## -->
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/1.jpg" itemprop="image" alt="美食さん小屋" height="70" width="70"></a>
+          <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/1.jpg" itemprop="image" alt="美食の小屋" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author">美食さん小屋</a>
+            <a href="" itemprop="url" rel="author">美食の小屋</a>
             </h3>
           </div>
         </div>
@@ -476,7 +497,8 @@
     </div>
   </div>
 </footer> -->
-<footer id="colophon" class="site-footer" role="contentinfo">
+
+<!-- <footer id="colophon" class="site-footer" role="contentinfo">
   <div class="site-info">
     <div class="footertext">
       <div class="img-preload">
@@ -491,7 +513,66 @@
         </span>
       </p>
     </div>
+  </div> 
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      。。。。。
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+    <!-- <i class="fa fa-fire" aria-hidden="true"></i> -->
+    <span style="color: #ccc;padding-left: 20px;">
+      <i class="fa fa-clock-o" aria-hidden="true"></i>
+      <span id="time" align="center">载入时间中...</span>
+      <script>
+        var now = new Date(); 
+        function createtime() { 
+          var grt= new Date("2020-02-11 17:20:00");//在此处修改你的建站时间
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("time").innerHTML = "小站已经苟活 "+ dnum +" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒";      
+       } 
+       setInterval("createtime()",250);
+      </script>
+      <!--不蒜子网页计数器-->
+      <span style="color:#ccc;padding-left: 20px;"><i class="fa fa-eye" aria-hidden="true"></i>访问量: <span id="busuanzi_value_site_pv"></span>次</span>
+    </span>
   </div><!-- .site-info -->
+  <!--壁纸切换-->
+  <div class="skin-menu no-select" id="mainskin"  style="position: fixed">
+      <div class="theme-controls row-container">
+          <ul class="menu-list">
+              <li id="white-bg"> <i class="fa fa-television" aria-hidden="true"></i></li>
+              <li id="sakura-bg"> <i class="iconfont icon-sakura"></i></li>
+              <li id="gribs-bg"> <i class="fa fa-slack" aria-hidden="true"></i></li>
+              <li id="KAdots-bg"> <i class="iconfont icon-dots"></i></li>
+              <li id="totem-bg"> <i class="fa fa-optin-monster" aria-hidden="true"></i></li>
+              <li id="pixiv-bg"> <i class="iconfont icon-pixiv"></i></li>
+              <li id="bing-bg"> <i class="iconfont icon-bing"></i></li>
+              <li id="dark-bg"> <i class="fa fa-moon-o" aria-hidden="true"></i></li>
+          </ul>
+      </div>
+      <div class="font-family-controls row-container">
+          <button type="button" class="control-btn-serif selected" data-mode="serif" onclick="mashiro_global.font_control.change_font()">Serif</button>
+          <button type="button" class="control-btn-sans-serif" data-mode="sans-serif" onclick="mashiro_global.font_control.change_font()">Sans Serif</button>
+      </div>
+  </div>   
+  <canvas id="night-mode-cover"></canvas> 
+    <div class="changeSkin-gear no-select">
+      <div class="keys" id="setbtn"> <span id="open-skinMenu"> 切换壁纸 | SCHEME TOOL 
+        &nbsp;<i class="iconfont icon-gear inline-block rotating"></i> </span></div>
+  </div><!--skin.end-->
 </footer>
 
 
@@ -505,9 +586,11 @@
 <script type="text/javascript" src="/js/sakura-app.js"></script>
 <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 <script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+
 <script src="/js/botui.js"></script>
 <!-- 不蒜子 网页计数器 -->
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -560,6 +643,48 @@ $(document).ready(function() {
 });
 </script>
 
+
+<!--添加网站运行时间  <br/>-->
+
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+  var now = new Date();
+
+  function createtime() {
+      //此处修改你的建站时间或者网站上线时间
+      var create_time = '06/11/2020 12:00:00';
+      now.setTime(now.getTime() + 250);
+      days = (now - grt) / 1000 / 60 / 60 / 24;
+      dnum = Math.floor(days);
+      hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+      hnum = Math.floor(hours);
+      if (String(hnum).length == 1) {
+          hnum = "0" + hnum;
+      }
+      minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+      mnum = Math.floor(minutes);
+      if (String(mnum).length == 1) {
+          mnum = "0" + mnum;
+      }
+      seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+      snum = Math.round(seconds);
+      if (String(snum).length == 1) {
+          snum = "0" + snum;
+      }
+      document.getElementById("timeDate").innerHTML = " | 本站已安全运行 " + dnum + " 天 ";
+      document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+  }
+  setInterval("createtime()", 250);
+  </script>
+
+
+
+
+
+<!--浏览器搞笑标题-->
+<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn@latest/js/hititle.js"></script>
+<!-- // 星星跟随坠落 -->
+<script src="https://cdn.jsdelivr.net/gh/cungudafa/cdn@2.1.2/js/cursor.js"></script>
     <div class="openNav no-select" style="height: 50px;">
       <div class="iconflat no-select" style="width: 50px; height: 50px;">
         <div class="icon"></div>
@@ -573,7 +698,7 @@ $(document).ready(function() {
   <div class="m-avatar">
     <img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/1.jpg">
   </div>
-  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">sunwarm美食さん小屋</p>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">sunwarm美食の小屋</p>
   <p style="text-align: center; word-spacing: 20px;">
     
       
@@ -606,6 +731,13 @@ $(document).ready(function() {
         </a>
         
           <ul class="sub-menu">
+            
+              <li>
+                <a href="/tags">
+                  <i class="fa fa-tags" aria-hidden="true"></i>
+                  标签
+                </a>
+              </li>
             
               <li>
                 <a href="/categories/%E6%8A%80%E6%9C%AF/">
