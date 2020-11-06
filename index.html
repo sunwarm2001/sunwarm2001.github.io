@@ -672,13 +672,15 @@
       </p>
     </div>
     <!-- <i class="fa fa-fire" aria-hidden="true"></i> -->
+    <!--网站底部的建站时间-->
     <span style="color: #ccc;padding-left: 20px;">
       <i class="fa fa-clock-o" aria-hidden="true"></i>
       <span id="time" align="center">载入时间中...</span>
       <script>
         var now = new Date(); 
         function createtime() { 
-          var grt= new Date("2020-02-11 17:20:00");//在此处修改你的建站时间
+          //在此处修改你的建站时间
+          var grt= new Date("2020-11-6 12:00:00");
           now.setTime(now.getTime()+250); 
           days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
           hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
@@ -717,7 +719,25 @@
     <div class="changeSkin-gear no-select">
       <div class="keys" id="setbtn"> <span id="open-skinMenu"> 切换壁纸 | SCHEME TOOL 
         &nbsp;<i class="iconfont icon-gear inline-block rotating"></i> </span></div>
-  </div><!--skin.end-->
+  </div>
+  
+  <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+      <span style="color: #b9b9b9;padding-left: 20px;">
+        <!-- 全网站字数统计wordcount -->
+        <i class="fa fa-line-chart"  aria-hidden="true" style="color: #ff9999;display:inline-block"></i> 博客全站共: <span class="post-count" style="color:#ff9999;">3.9k</span>字</span>
+        <!-- 不蒜子网页计数器 -->
+        
+        <span style="padding-left: 20px;"><i class="fa fa-fire" aria-hidden="true" style="color: #ff9999;display:inline-block"></i><span id="busuanzi_container_site_pv">总访问量： <span id="busuanzi_value_site_pv" style="color:#ff9999;"></span>次</span>
+        </span>
+        
+        
+        <span style="padding-left: 20px;"><i class="fa fa-user" aria-hidden="true" style="color: #ff9999;display:inline-block"></i><span id="busuanzi_container_site_uv">总访问人数： <span id="busuanzi_value_site_uv" style="color:#ff9999;"></span>人</span>
+        </span>
+        
+      </span>
+    </p>
+  </div>
 </footer>
 
 
@@ -735,7 +755,7 @@
 <script src="/js/botui.js"></script>
 <!-- 不蒜子 网页计数器 -->
 <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
 <script type="text/javascript">
 /* <![CDATA[ */
