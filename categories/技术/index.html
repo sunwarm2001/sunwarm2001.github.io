@@ -706,7 +706,7 @@
         var now = new Date(); 
         function createtime() { 
           //在此处修改你的建站时间
-          var grt= new Date("Fri Nov 06 2020 20:00:00 GMT+0800 (中国标准时间)");
+          var grt= new Date("Fri Nov 06 2020 08:00:00 GMT+0800 (中国标准时间)");
           now.setTime(now.getTime()+250); 
           days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
           hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
@@ -719,6 +719,7 @@
        setInterval("createtime()",250);
       </script>
     </span>
+    </p>
   </div>
   
   
