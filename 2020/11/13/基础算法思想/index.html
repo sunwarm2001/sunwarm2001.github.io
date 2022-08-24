@@ -476,42 +476,39 @@
 &#125;</code></pre>
 <h6 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h6><p>当递归函数是quick_sort(q,l,i-1); quick_sort(q,i,r);时，x不能取q[l]，否则会死循环；<br>当递归函数是quick_sort(q,l,j);quick_sort(q,j+1,r);时，x不能取q[r],否则会死循环；<br>综上所述：x最好取 q[l+r&gt;&gt;1];  </p>
 <h4 id="归并排序——模板题-归并排序"><a href="#归并排序——模板题-归并排序" class="headerlink" title="归并排序——模板题 归并排序"></a>归并排序——模板题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/789/">归并排序</a></h4><h6 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h6><ol>
-<li><p>确定分界点（取区间的中点）</p>
-</li>
-<li><p>递归排序左右两区间</p>
-</li>
-<li><p>归并（合二为一）</p>
-<h6 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h6><pre><code>const int N = 1000;
+<li>确定分界点（取区间的中点）</li>
+<li>递归排序左右两区间</li>
+<li>归并（合二为一）<h6 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h6></li>
+</ol>
+<pre><code>const int N = 1000;
 int tmp[N];     //tmp：存放q数组中已排序的部分
 void merge_sort(int q[], int l ,int r)
 &#123;
- //递归出口
- if(l&gt;=r)    return;   
+    //递归出口
+    if(l&gt;=r)    return;   
 
- int mid = l+r &gt;&gt; 1;
- //对区间两部分进行排序
- merge_sort(q, l ,mid), merge_sort(q, mid+1, r);     
+    int mid = l+r &gt;&gt; 1;
+    //对区间两部分进行排序
+    merge_sort(q, l ,mid), merge_sort(q, mid+1, r);     
 
- //进行归并
- int k = 0, i = l, j = mid+1;    //k：表示tmp数组中已经有多少数了
- while(i &lt;= mid &amp;&amp; j &lt;= r)
- &#123;
-     if(q[i] &lt;= q[j])
-         tmp[k++] = q[i++];
-     else
-         tmp[k++] = q[j++];
- &#125;
+    //进行归并
+    int k = 0, i = l, j = mid+1;    //k：表示tmp数组中已经有多少数了
+    while(i &lt;= mid &amp;&amp; j &lt;= r)
+    &#123;
+        if(q[i] &lt;= q[j])
+            tmp[k++] = q[i++];
+        else
+            tmp[k++] = q[j++];
+    &#125;
 
- while(i &lt;= mid)  tmp[k++] = q[i++];
- while(j &lt;= r)    tmp[k++] = q[j++];
+    while(i &lt;= mid)  tmp[k++] = q[i++];
+    while(j &lt;= r)    tmp[k++] = q[j++];
 
- //将tmp数组赋值给q数组
- for(i=l, j=0; i&lt;=r; i++,j++)
-     q[i] = tmp[j];
+    //将tmp数组赋值给q数组
+    for(i=l, j=0; i&lt;=r; i++,j++)
+        q[i] = tmp[j];
 &#125;</code></pre>
 <h6 id="注解-1"><a href="#注解-1" class="headerlink" title="注解"></a>注解</h6><p>归并排序要定义一个tmp数组用于存放q数组中已排序的部分，最后再将tmp数组赋给q数组</p>
-</li>
-</ol>
 <hr>
 <h2 id="二分"><a href="#二分" class="headerlink" title="二分"></a>二分</h2><blockquote>
 <ol>
@@ -556,7 +553,7 @@ int bsearch_2(int l, int r)
 <li>如果是前者，则 mid = l + r &gt;&gt; 1; 如果是后者，则 mid = l + r + 1 &gt;&gt;1;</li>
 </ul>
 </li>
-<li>为啥 l = mid 时 mid = l + r + 1 &gt;&gt; 1而不是 l + r &gt;&gt; 1?<br>假设： l = mid， mid = l + r &gt;&gt;1；<br>原因：当 l = r-1 时，mid = l + r &gt;&gt; 1 = l;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当check(mid)为true时， l = mid;执行的区间是[mid,r] = [l, r]，和上一个区间相同，从而导致死循环。  </li>
+<li>为啥 l = mid 时 mid = l + r + 1 &gt;&gt; 1而不是 l + r &gt;&gt; 1?<br>假设： l = mid， mid = l + r &gt;&gt;1；<br>原因：当 l = r-1 时，mid = l + r &gt;&gt; 1 = l;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;当check(mid)为true时， l = mid;执行的区间是[mid,r] = [l, r]，和上一个区间相同，从而导致死循环。  </li>
 </ol>
 <h4 id="浮点数二分——模板题-数的三次方根"><a href="#浮点数二分——模板题-数的三次方根" class="headerlink" title="浮点数二分——模板题 数的三次方根"></a>浮点数二分——模板题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/792/">数的三次方根</a></h4><pre><code>bool check(int x) &#123;/*  ...   */&#125;   //检查x是否满足某种性质
 
@@ -583,7 +580,7 @@ double bsearch_3(double l, double r)
 <li>大整数的存储：用vector数组存储，第0位对应大数的个位，以此类推。好处：方便最高位进位  </li>
 <li>A &lt; 10 和 len(A) &lt; 10的区别:<br>　　前者表示Ａ在[0,9]中任取一个数，后者表示Ａ在[0，999999999]中任取一个数  </li>
 <li>高精度运算：A + B , A - B , A * b , A / b中，各数的范围如下：<br>　　　b &lt; 10<sup>6</sup>,  　len(A) &lt; 10<sup>6</sup>, 　len(B) &lt; 10<sup>6</sup>,  </li>
-<li>高精度运算的思想:<br> 大整数的存储<br> 模拟人工的加减乘除运算</li>
+<li>高精度运算的思想:<br>   大整数的存储<br>   模拟人工的加减乘除运算</li>
 </ol>
 </blockquote>
 <h4 id="高精度加法——模板题-高精度加法"><a href="#高精度加法——模板题-高精度加法" class="headerlink" title="高精度加法——模板题 高精度加法"></a>高精度加法——模板题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/793/">高精度加法</a></h4><h6 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h6><ol>
@@ -613,38 +610,34 @@ vector&lt;int&gt; add(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B)
 </li>
 </ol>
 <h4 id="高精度减法运算——模板题-高精度减法"><a href="#高精度减法运算——模板题-高精度减法" class="headerlink" title="高精度减法运算——模板题 高精度减法"></a>高精度减法运算——模板题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/794/">高精度减法</a></h4><h6 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h6><ol>
-<li><p>大整数的存储：vector数组第0位存储A的个位…</p>
-</li>
-<li><p>C = A - B ：要保证A &gt;= B, A &gt;= 0, B &gt;= 0<br> 如果A - B &lt; 0，则 A - B = - (B - A)；反之直接相减</p>
-</li>
-<li><p>对于每一位的减法运算：C[i] = A[i] - B[i] - t，t = 0 || 1<br>如果C[i]小于0，则借位；反之不借</p>
-<h6 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h6><pre><code>// C = A - B, 满足A &gt;= B, A &gt;= 0, B &gt;= 0
+<li>大整数的存储：vector数组第0位存储A的个位…</li>
+<li>C = A - B ：要保证A &gt;= B, A &gt;= 0, B &gt;= 0<br> 如果A - B &lt; 0，则 A - B = - (B - A)；反之直接相减</li>
+<li>对于每一位的减法运算：C[i] = A[i] - B[i] - t，t = 0 || 1<br>如果C[i]小于0，则借位；反之不借<h6 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h6></li>
+</ol>
+<pre><code>// C = A - B, 满足A &gt;= B, A &gt;= 0, B &gt;= 0
 vector&lt;int&gt; sub(vector&lt;int&gt; &amp;A, vector&lt;int&gt; &amp;B)
 &#123;
- vector&lt;int&gt; C;
- int t = 0;  //上一位的借位
- for (int i = 0; i &lt; A.size(); i ++ )
- &#123;
-     t = A[i] - t;
-     if (i &lt; B.size()) t -= B[i];
-     C.push_back((t + 10) % 10);     //注解1
-     if (t &lt; 0)      //注解2
-         t = 1;      
-     else 
-         t = 0;      
- &#125;
+    vector&lt;int&gt; C;
+    int t = 0;  //上一位的借位
+    for (int i = 0; i &lt; A.size(); i ++ )
+    &#123;
+        t = A[i] - t;
+        if (i &lt; B.size()) t -= B[i];
+        C.push_back((t + 10) % 10);     //注解1
+        if (t &lt; 0)      //注解2
+            t = 1;      
+        else 
+            t = 0;      
+    &#125;
 
- while (C.size() &gt; 1 &amp;&amp; C.back() == 0)   //注解3
-     C.pop_back();
- return C;
+    while (C.size() &gt; 1 &amp;&amp; C.back() == 0)   //注解3
+        C.pop_back();
+    return C;
 &#125;</code></pre>
-<h6 id="注解-4"><a href="#注解-4" class="headerlink" title="注解"></a>注解</h6></li>
-<li><p>(t + 10) % 10包含了：t&lt;0借位 和 t&gt;0不借位两种情况</p>
-</li>
-<li><p>t &lt; 0 代表有借位 t = 1，否则无借位 t = 0</p>
-</li>
-<li><p>while(C.size() &gt; 1 &amp;&amp; C.back() == 0) 是为了去掉前置0（103 - 100 = 003–&gt;3，100 - 100 = 000–&gt;0）</p>
-</li>
+<h6 id="注解-4"><a href="#注解-4" class="headerlink" title="注解"></a>注解</h6><ol>
+<li>(t + 10) % 10包含了：t&lt;0借位 和 t&gt;0不借位两种情况</li>
+<li>t &lt; 0 代表有借位 t = 1，否则无借位 t = 0</li>
+<li>while(C.size() &gt; 1 &amp;&amp; C.back() == 0) 是为了去掉前置0（103 - 100 = 003–&gt;3，100 - 100 = 000–&gt;0）</li>
 </ol>
 <h4 id="高精度乘低精度——模板题-高精度乘法"><a href="#高精度乘低精度——模板题-高精度乘法" class="headerlink" title="高精度乘低精度——模板题 高精度乘法"></a>高精度乘低精度——模板题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/description/795/">高精度乘法</a></h4><h6 id="思路-4"><a href="#思路-4" class="headerlink" title="思路"></a>思路</h6><ol>
 <li>大整数的存储：vector数组第0位存储A的个位…</li>
@@ -670,22 +663,24 @@ vector&lt;int&gt; mul(vector&lt;int&gt; &amp;A, int b)
 <h4 id="高精度除以低精度——模板题-高精度除法"><a href="#高精度除以低精度——模板题-高精度除法" class="headerlink" title="高精度除以低精度——模板题 高精度除法"></a>高精度除以低精度——模板题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/796/">高精度除法</a></h4><h6 id="思路-5"><a href="#思路-5" class="headerlink" title="思路"></a>思路</h6><ol>
 <li>大整数的存储：vector数组第0位存储A的个位…</li>
 <li>C = A / b, 保证 A &gt;= 0, b &gt; 0</li>
-<li>对于每一位的除法运算：C[i] = (r * 10 + A[i]) / b， r = (r * 10 + A[i]) % b<br>r：上一位的余数<pre><code>// A / b = C ... r, A &gt;= 0, b &gt; 0
+<li>对于每一位的除法运算：C[i] = (r * 10 + A[i]) / b， r = (r * 10 + A[i]) % b<br>r：上一位的余数<h6 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h6></li>
+</ol>
+<pre><code>// A / b = C ... r, A &gt;= 0, b &gt; 0
 vector&lt;int&gt; div(vector&lt;int&gt; &amp;A, int b, int &amp;r)   //r是引用
 &#123;   
- vector&lt;int&gt; C;  //商
- r = 0;
- for (int i = A.size() - 1; i &gt;= 0; i -- )   //注解1
- &#123;
-     r = r * 10 + A[i];
-     C.push_back(r / b);
-     r %= b;
- &#125;
- reverse(C.begin(), C.end());    //注解2
- while (C.size() &gt; 1 &amp;&amp; C.back() == 0) C.pop_back(); //注解3
- return C;
+    vector&lt;int&gt; C;  //商
+    r = 0;
+    for (int i = A.size() - 1; i &gt;= 0; i -- )   //注解1
+    &#123;
+        r = r * 10 + A[i];
+        C.push_back(r / b);
+        r %= b;
+    &#125;
+    reverse(C.begin(), C.end());    //注解2
+    while (C.size() &gt; 1 &amp;&amp; C.back() == 0) C.pop_back(); //注解3
+    return C;
 &#125;</code></pre>
-<h6 id="注解-6"><a href="#注解-6" class="headerlink" title="注解"></a>注解</h6></li>
+<h6 id="注解-6"><a href="#注解-6" class="headerlink" title="注解"></a>注解</h6><ol>
 <li>除法是从A.size()-1开始for循环，和其他三种运算不同。这是因为除法是从数的高位开始相除，而其他三种运算是从数的个位开始运算</li>
 <li>因为vector数组是低位存数的个位，而除法的for循环里vector存放的是数的高位，所以要翻转</li>
 <li>去掉前导0（1000 / 9 = 0111 –&gt; 111)</li>
@@ -720,7 +715,7 @@ vector&lt;int&gt; div(vector&lt;int&gt; &amp;A, int b, int &amp;r)   //r是引�
 <h4 id="二维差分——模板题-差分矩阵"><a href="#二维差分——模板题-差分矩阵" class="headerlink" title="二维差分——模板题 差分矩阵"></a>二维差分——模板题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/800/">差分矩阵</a></h4><pre><code>公式：
     给以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵中的所有元素加上c：
     s[x1, y1] += c, s[x2 + 1, y1] -= c, s[x1, y2 + 1] -= c, s[x2 + 1, y2 + 1] += c</code></pre>
-<p>说明：<br>利用一维差分中的插入方法求b数组</p>
+<p>说明：利用一维差分中的插入方法求b数组</p>
 <hr>
 <h2 id="双指针算法——模板题-最长连续不重复子序列-数组元素的目标和"><a href="#双指针算法——模板题-最长连续不重复子序列-数组元素的目标和" class="headerlink" title="双指针算法——模板题 最长连续不重复子序列,  数组元素的目标和"></a>双指针算法——模板题 <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/801/">最长连续不重复子序列</a>,  <a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/802/">数组元素的目标和</a></h2><pre><code>//朴素算法：
 for(int i=0;i&lt;n;i++)
@@ -813,9 +808,26 @@ int find(int x) // 找到第一个大于等于x的位置
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2022/01/23/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                </h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2020/11/05/BFS%E6%A8%A1%E6%9D%BF/" rel="next">
               <div class="background">
@@ -901,7 +913,7 @@ int find(int x) // 找到第一个大于等于x的位置
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2021 sunwarm2001<br>
+      &copy; 2022 sunwarm2001<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -982,7 +994,7 @@ int find(int x) // 找到第一个大于等于x的位置
    <div class="footer-device">
     <p style="font-family: 'Ubuntu', sans-serif;">
         <span style="color: #b9b9b9;">
-          Copyright &copy; 2021
+          Copyright &copy; 2022
           &nbsp;<a style="color: #ff9999;display:inline-block"> sunwarm2001 </a>
           &nbsp;<i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> 
           &nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank" style="color: #ff9999;display:inline-block">Hexo</a>
