@@ -67,7 +67,11 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
@@ -422,7 +426,7 @@
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
         <!-- 安装插件npm install hexo-wordcount --save -->
-        <span class="post-count">727字</span>
+        <span class="post-count">719字</span>
       </span>
     </span>
 
@@ -450,48 +454,75 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h1><hr>
-<h2 id="一-nbsp-标题"><a href="#一-nbsp-标题" class="headerlink" title="一.&nbsp;标题"></a>一.&nbsp;标题</h2><ul>
-<li>语法： ‘#’ 标记1-6级标题，一级标题对应一个’#’，以此类推  </li>
-<li>用法： ‘#’ 后必须加个空格  </li>
-<li>例子：<pre><code># 一级标题
+          <h1 id="markdown语法"><a class="markdownIt-Anchor" href="#markdown语法"></a> markdown语法</h1>
+<hr />
+<h2 id="一-标题"><a class="markdownIt-Anchor" href="#一-标题"></a> 一. 标题</h2>
+<ul>
+<li>语法： ‘#’ 标记1-6级标题，一级标题对应一个’#’，以此类推</li>
+<li>用法： ‘#’ 后必须加个空格</li>
+<li>例子：</li>
+</ul>
+<pre class="highlight"><code class=""># 一级标题
 ## 二级标题
 ### 三级标题
-.......</code></pre>
-</li>
-<li>效果如下：<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3></li>
+.......
+</code></pre>
+<ul>
+<li>效果如下：</li>
 </ul>
-<hr>
-<h2 id="二-nbsp-空格和换行"><a href="#二-nbsp-空格和换行" class="headerlink" title="二.&nbsp;空格和换行"></a>二.&nbsp;空格和换行</h2><h4 id="1-空格"><a href="#1-空格" class="headerlink" title="1. 空格"></a>1. 空格</h4><p>markdown的空格有两种方法：  </p>
+<h1 id="一级标题"><a class="markdownIt-Anchor" href="#一级标题"></a> 一级标题</h1>
+<h2 id="二级标题"><a class="markdownIt-Anchor" href="#二级标题"></a> 二级标题</h2>
+<h3 id="三级标题"><a class="markdownIt-Anchor" href="#三级标题"></a> 三级标题</h3>
+<hr />
+<h2 id="二-空格和换行"><a class="markdownIt-Anchor" href="#二-空格和换行"></a> 二. 空格和换行</h2>
+<h4 id="1-空格"><a class="markdownIt-Anchor" href="#1-空格"></a> 1. 空格</h4>
+<p>markdown的空格有两种方法：</p>
 <ul>
 <li>手动输入(&amp;nbsp;)</li>
-<li>使用全角空格(shift+空格)  </li>
+<li>使用全角空格(shift+空格)</li>
 </ul>
-<h4 id="2-换行"><a href="#2-换行" class="headerlink" title="2. 换行"></a>2. 换行</h4><p>markdown的换行有三种方法</p>
+<h4 id="2-换行"><a class="markdownIt-Anchor" href="#2-换行"></a> 2. 换行</h4>
+<p>markdown的换行有三种方法</p>
 <ul>
-<li>在尾部使用两个空格 + 回车 </li>
+<li>在尾部使用两个空格 + 回车</li>
 <li>使用标签&lt;br&gt;</li>
 <li>使用两下回车 （ 此方法会多空一行）</li>
 </ul>
-<hr>
-<h2 id="三-nbsp-字体"><a href="#三-nbsp-字体" class="headerlink" title="三.&nbsp;字体"></a>三.&nbsp;字体</h2><h4 id="1-加粗：文字用-‘-’-包起来"><a href="#1-加粗：文字用-‘-’-包起来" class="headerlink" title="1.加粗：文字用 ‘**’ 包起来"></a>1.加粗：文字用 ‘**’ 包起来</h4><h4 id="2-斜体：文字用’-’包起来"><a href="#2-斜体：文字用’-’包起来" class="headerlink" title="2.斜体：文字用’*’包起来"></a>2.斜体：文字用’*’包起来</h4><h4 id="3-斜体加粗：文字用’-’包起来"><a href="#3-斜体加粗：文字用’-’包起来" class="headerlink" title="3.斜体加粗：文字用’***’包起来"></a>3.斜体加粗：文字用’***’包起来</h4><h4 id="4-删除线：文字用’-’包起来"><a href="#4-删除线：文字用’-’包起来" class="headerlink" title="4.删除线：文字用’~~’包起来"></a>4.删除线：文字用’~~’包起来</h4><p>例子：</p>
-<pre><code>**加粗的文字**
+<hr />
+<h2 id="三-字体"><a class="markdownIt-Anchor" href="#三-字体"></a> 三. 字体</h2>
+<h4 id="1加粗文字用-包起来"><a class="markdownIt-Anchor" href="#1加粗文字用-包起来"></a> 1.加粗：文字用 ‘**’ 包起来</h4>
+<h4 id="2斜体文字用包起来"><a class="markdownIt-Anchor" href="#2斜体文字用包起来"></a> 2.斜体：文字用’*'包起来</h4>
+<h4 id="3斜体加粗文字用包起来"><a class="markdownIt-Anchor" href="#3斜体加粗文字用包起来"></a> 3.斜体加粗：文字用’***'包起来</h4>
+<h4 id="4删除线文字用~~包起来"><a class="markdownIt-Anchor" href="#4删除线文字用~~包起来"></a> 4.删除线：文字用’~~'包起来</h4>
+<p>例子：</p>
+<pre class="highlight"><code class="">**加粗的文字**
 *斜体的文字*
 ***斜体加粗的文字***
-~~加删除线的文字~~</code></pre>
-<p>效果如下：<br><strong>加粗的文字</strong><br><em>斜体的文字</em><br>**<em>斜体加粗的文字**</em><br><del>加删除线的文字</del>  </p>
-<hr>
-<h2 id="四-nbsp-分隔线、下划线、引用"><a href="#四-nbsp-分隔线、下划线、引用" class="headerlink" title="四.&nbsp;分隔线、下划线、引用"></a>四.&nbsp;分隔线、下划线、引用</h2><h4 id="1-分隔线：使用三个或以上的-减号-、星号-、底线"><a href="#1-分隔线：使用三个或以上的-减号-、星号-、底线" class="headerlink" title="1. 分隔线：使用三个或以上的 减号(-)、星号(*)、底线(_)"></a>1. 分隔线：使用三个或以上的 减号(-)、星号(*)、底线(_)</h4><h4 id="2-下划线：通过-lt-u-gt-标签实现"><a href="#2-下划线：通过-lt-u-gt-标签实现" class="headerlink" title="2.下划线：通过&lt;u&gt;标签实现"></a>2.下划线：通过&lt;u&gt;标签实现</h4><ul>
+~~加删除线的文字~~
+</code></pre>
+<p>效果如下：<br />
+<strong>加粗的文字</strong><br />
+<em>斜体的文字</em><br />
+<em><strong>斜体加粗的文字</strong></em><br />
+<s>加删除线的文字</s></p>
+<hr />
+<h2 id="四-分隔线-下划线-引用"><a class="markdownIt-Anchor" href="#四-分隔线-下划线-引用"></a> 四. 分隔线、下划线、引用</h2>
+<h4 id="1-分隔线使用三个或以上的-减号-星号-底线_"><a class="markdownIt-Anchor" href="#1-分隔线使用三个或以上的-减号-星号-底线_"></a> 1. 分隔线：使用三个或以上的 减号(-)、星号(*)、底线(_)</h4>
+<h4 id="2下划线通过u标签实现"><a class="markdownIt-Anchor" href="#2下划线通过u标签实现"></a> 2.下划线：通过&lt;u&gt;标签实现</h4>
+<ul>
 <li>例子：<code>&lt;u&gt;文字&lt;/u&gt;</code></li>
 <li>效果：<u>文字</u></li>
 </ul>
-<h4 id="3-引用：在引用的文字前加-gt"><a href="#3-引用：在引用的文字前加-gt" class="headerlink" title="3.引用：在引用的文字前加 &gt;"></a>3.引用：在引用的文字前加 &gt;</h4><ul>
+<h4 id="3引用在引用的文字前加"><a class="markdownIt-Anchor" href="#3引用在引用的文字前加"></a> 3.引用：在引用的文字前加 &gt;</h4>
+<ul>
 <li>注：引用可以嵌套，如加多个 &gt;</li>
-<li>例子： <pre><code>&gt;引用1
+<li>例子：<pre class="highlight"><code class="">&gt;引用1
 &gt;&gt;引用2
-&gt;&gt;&gt;引用3</code></pre>
+&gt;&gt;&gt;引用3
+</code></pre>
 </li>
-<li>效果：<blockquote>
+<li>效果：
+<blockquote>
 <p>引用1</p>
 <blockquote>
 <p>引用2</p>
@@ -502,23 +533,30 @@
 </blockquote>
 </li>
 </ul>
-<hr>
-<h2 id="五-nbsp-列表"><a href="#五-nbsp-列表" class="headerlink" title="五.&nbsp;列表"></a>五.&nbsp;列表</h2><h4 id="1-无序列表"><a href="#1-无序列表" class="headerlink" title="1. 无序列表"></a>1. 无序列表</h4><ul>
+<hr />
+<h2 id="五-列表"><a class="markdownIt-Anchor" href="#五-列表"></a> 五. 列表</h2>
+<h4 id="1-无序列表"><a class="markdownIt-Anchor" href="#1-无序列表"></a> 1. 无序列表</h4>
+<ul>
 <li>用法：使用星号(<code>*</code>)、加号(<code>+</code>)、减号(<code>-</code>)中的任一个作为列表标记，空一格在填写内容</li>
 <li>例子：</li>
 </ul>
-<pre><code>- one
+<pre class="highlight"><code class="">- one
 - two
-- three</code></pre>
-<h4 id="2-有序列表"><a href="#2-有序列表" class="headerlink" title="2. 有序列表"></a>2. 有序列表</h4><ul>
-<li>用法：数字加上<code>.</code>并空一格在填写内容   </li>
+- three
+</code></pre>
+<h4 id="2-有序列表"><a class="markdownIt-Anchor" href="#2-有序列表"></a> 2. 有序列表</h4>
+<ul>
+<li>用法：数字加上<code>.</code>并空一格在填写内容</li>
 <li>例子：</li>
 </ul>
-<pre><code>1. 列表one
+<pre class="highlight"><code class="">1. 列表one
 2. 列表two
-3. 列表three</code></pre>
-<h4 id="3-列表嵌套"><a href="#3-列表嵌套" class="headerlink" title="3. 列表嵌套"></a>3. 列表嵌套</h4><p>在下一级前使用tab键（或者空三个）<br>例子：</p>
-<pre><code>1. The first   
+3. 列表three
+</code></pre>
+<h4 id="3-列表嵌套"><a class="markdownIt-Anchor" href="#3-列表嵌套"></a> 3. 列表嵌套</h4>
+<p>在下一级前使用tab键（或者空三个）<br />
+例子：</p>
+<pre class="highlight"><code class="">1. The first   
     - The first of one
     - The first of two
 2. The second   
@@ -526,72 +564,102 @@
     - The second of two 
 - 无序1   
     - 无序1.1  
-       - 无序1.1.1  </code></pre>
+       - 无序1.1.1  
+</code></pre>
 <p>效果：</p>
 <ol>
-<li>The first   <ul>
+<li>The first
+<ul>
 <li>The first of one</li>
 <li>The first of two</li>
 </ul>
 </li>
-<li>The second   <ul>
+<li>The second
+<ul>
 <li>The second of one</li>
-<li>The second of two </li>
+<li>The second of two</li>
 </ul>
 </li>
 </ol>
 <ul>
-<li>无序1   <ul>
-<li>无序1.1  <ul>
-<li>无序1.1.1  </li>
+<li>无序1
+<ul>
+<li>无序1.1
+<ul>
+<li>无序1.1.1</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<hr>
-<h2 id="六-nbsp-代码块"><a href="#六-nbsp-代码块" class="headerlink" title="六.&nbsp;代码块"></a>六.&nbsp;代码块</h2><h4 id="1-单行代码"><a href="#1-单行代码" class="headerlink" title="1. 单行代码"></a>1. 单行代码</h4><ul>
+<hr />
+<h2 id="六-代码块"><a class="markdownIt-Anchor" href="#六-代码块"></a> 六. 代码块</h2>
+<h4 id="1-单行代码"><a class="markdownIt-Anchor" href="#1-单行代码"></a> 1. 单行代码</h4>
+<ul>
 <li>用法：用一个反引号(`)包起来</li>
-<li>例子<pre><code>`printf()`</code></pre>
-</li>
-<li>效果<br><code>printf()</code></li>
+<li>例子</li>
 </ul>
-<h4 id="2-代码块"><a href="#2-代码块" class="headerlink" title="2. 代码块"></a>2. 代码块</h4><ul>
+<pre class="highlight"><code class="">`printf()`
+</code></pre>
+<ul>
+<li>效果<br />
+<code>printf()</code></li>
+</ul>
+<h4 id="2-代码块"><a class="markdownIt-Anchor" href="#2-代码块"></a> 2. 代码块</h4>
+<ul>
 <li>用法：两边用三个反引号包起来，并且每边都独占一行</li>
-<li>例子：<br>```<br>代码1…<br>代码2…<br>代码3…<br>```</li>
-<li>效果<pre><code>代码1...  
-代码2...  
-代码3...  </code></pre>
-</li>
+<li>例子：<br />
+```<br />
+代码1…<br />
+代码2…<br />
+代码3…<br />
+```</li>
+<li>效果</li>
 </ul>
-<hr>
-<h2 id="七-nbsp-链接"><a href="#七-nbsp-链接" class="headerlink" title="七.&nbsp;链接"></a>七.&nbsp;链接</h2><ul>
-<li>用法：<ul>
+<pre class="highlight"><code class="">代码1...  
+代码2...  
+代码3...  
+</code></pre>
+<hr />
+<h2 id="七-链接"><a class="markdownIt-Anchor" href="#七-链接"></a> 七. 链接</h2>
+<ul>
+<li>用法：
+<ul>
 <li>[标题](“超链接地址”)</li>
 <li>&lt;链接地址&gt;</li>
 </ul>
 </li>
-<li>例子：<pre><code>[百度](https://www.baidu.com)
-[简书](https://www.jianshu.com)
-&lt;https://www.taobao.com&gt;</code></pre>
-<a target="_blank" rel="noopener" href="https://www.baidu.com/">百度</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/">简书</a><br><a target="_blank" rel="noopener" href="https://www.taobao.com/">https://www.taobao.com</a></li>
+<li>例子：</li>
 </ul>
-<hr>
-<h2 id="八-nbsp-图片"><a href="#八-nbsp-图片" class="headerlink" title="八.&nbsp;图片"></a>八.&nbsp;图片</h2><ul>
-<li><p>用法：![alt](图片地址   “title”)    </p>
+<pre class="highlight"><code class="">[百度](https://www.baidu.com)
+[简书](https://www.jianshu.com)
+&lt;https://www.taobao.com&gt;
+</code></pre>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com">百度</a><br />
+<a target="_blank" rel="noopener" href="https://www.jianshu.com">简书</a><br />
+<a target="_blank" rel="noopener" href="https://www.taobao.com">https://www.taobao.com</a></p>
+<hr />
+<h2 id="八-图片"><a class="markdownIt-Anchor" href="#八-图片"></a> 八. 图片</h2>
 <ul>
-<li>开头是一个感叹号(!)    </li>
-<li>alt：显示在图片下面的文字，相当于对图片内容的解释。  </li>
+<li>
+<p>用法：![alt](图片地址   “title”)</p>
+<ul>
+<li>开头是一个感叹号(!)</li>
+<li>alt：显示在图片下面的文字，相当于对图片内容的解释。</li>
 <li>title：图片的标题，当鼠标移到图片上时显示的内容。title可加可不加</li>
 </ul>
 </li>
-<li><p>例子</p>
-<pre><code>![冰冻柠檬](https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.1/img/myown/10.jpg)</code></pre>
-</li>
-<li><p>效果<br><img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.1/img/myown/10.jpg" alt="&quot;冰冻柠檬&quot;"></p>
+<li>
+<p>例子</p>
 </li>
 </ul>
-<hr>
+<pre class="highlight"><code class="">![冰冻柠檬](https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.1/img/myown/10.jpg)
+</code></pre>
+<ul>
+<li>效果<br />
+<img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.1/img/myown/10.jpg" alt="&quot;冰冻柠檬&quot;" /></li>
+</ul>
+<hr />
 
         </div>
         <!-- .entry-content -->
@@ -613,7 +681,7 @@
               <div class="tag-cloud-title">
               </div>
               <div class="tag-cloud-tags">
-              <a href="/tags/markdown/" style="font-size: 10px; color: #f38181">markdown</a> <a href="/tags/web/" style="font-size: 10px; color: #f38181">web</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 10px; color: #f38181">日记</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 20px; color: #95e1d3">模板</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px; color: #95e1d3">算法</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 20px; color: #95e1d3">阅读</a>
+              <a href="/tags/hexo/" style="font-size: 10px; color: #f38181">hexo</a> <a href="/tags/latex/" style="font-size: 10px; color: #f38181">latex</a> <a href="/tags/markdown/" style="font-size: 10px; color: #f38181">markdown</a> <a href="/tags/web/" style="font-size: 10px; color: #f38181">web</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 20px; color: #95e1d3">模板</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px; color: #95e1d3">算法</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 15px; color: #c4b1aa">阅读</a>
               </div>
             </div>
 
@@ -649,15 +717,15 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2020/11/05/%E6%97%A5%E8%AE%B01/" rel="next">
+            <a href="/2018/12/12/Hexo-Theme-Sakura/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/20.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/20.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/12.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/12.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                日记1</h3>
+                Hexo-Theme-Sakura</h3>
                 <hr>
               </div>
             </a>
@@ -797,7 +865,7 @@
     <p style="font-family: 'Ubuntu', sans-serif;">
       <span style="color: #b9b9b9;padding-left: 20px;">
         <!-- 全网站字数统计wordcount -->
-        <i class="fa fa-line-chart"  aria-hidden="true" style="color: #ff9999;display:inline-block"></i> 博客全站共: <span class="post-count" style="color:#ff9999;">7.9k</span>字</span>
+        <i class="fa fa-line-chart"  aria-hidden="true" style="color: #ff9999;display:inline-block"></i> 博客全站共: <span class="post-count" style="color:#ff9999;">8.1k</span>字</span>
         <!-- 不蒜子网页计数器 -->
         
         <span style="padding-left: 20px;"><i class="fa fa-fire" aria-hidden="true" style="color: #ff9999;display:inline-block"></i><span id="busuanzi_container_site_pv">总访问量： <span id="busuanzi_value_site_pv" style="color:#ff9999;"></span>次</span>

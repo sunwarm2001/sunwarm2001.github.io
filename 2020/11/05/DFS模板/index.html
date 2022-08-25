@@ -67,7 +67,11 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
@@ -422,7 +426,7 @@
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
         <!-- 安装插件npm install hexo-wordcount --save -->
-        <span class="post-count">582字</span>
+        <span class="post-count">572字</span>
       </span>
     </span>
 
@@ -450,128 +454,126 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="DFS模板"><a href="#DFS模板" class="headerlink" title="DFS模板"></a>DFS模板</h2><blockquote>
-<p>解决问题：所有解问题，或连通性问题</p>
-</blockquote>
-<hr>
-<h3 id="DFS思路：递归"><a href="#DFS思路：递归" class="headerlink" title="DFS思路：递归"></a>DFS思路：递归</h3><pre><code>void dfs(int step)
+          <h2 id="dfs模板"><a class="markdownIt-Anchor" href="#dfs模板"></a> DFS模板</h2>
+<p><code>解决问题：所有解问题，或连通性问题</code></p>
+<h4 id="dfs思路递归"><a class="markdownIt-Anchor" href="#dfs思路递归"></a> DFS思路：递归</h4>
+<pre class="highlight"><code class="">void dfs(int step)
 &#123;
-    判断边界if()
-    &#123;
-        相应操作
-    &#125;
-        尝试每一种可能for()
-    &#123;
-           满足条件if()
-           标记  == true;
-           继续下一步:dfs(step + 1)
-           恢复初始状态（回溯的时候要用到）
-    &#125;
-&#125;</code></pre>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><ol>
-<li>全排列：输出自然数 1 到 n 所有不重复的排列，即 n 的全排列，要求所产生的任一数字序列中不允许出现重复的数字</li>
-</ol>
+	判断边界if()
+	&#123;
+		相应操作
+	&#125;
+		尝试每一种可能for()
+	&#123;
+		   满足条件if()
+		   标记  == true;
+		   继续下一步:dfs(step + 1)
+		   恢复初始状态（回溯的时候要用到）
+	&#125;
+&#125;
+</code></pre>
+<h4 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目</h4>
+<p>全排列：输出自然数 1 到 n 所有不重复的排列，即 n 的全排列，要求所产生的任一数字序列中不允许出现重复的数字</p>
 <ul>
-<li><p>递归实现</p>
-<pre><code>#include&lt;iostream&gt;
-using namespace std;
-const int N = 10;
-int num[N],n;
-bool vis[N];
-void dfs(int u)
-&#123;
-  if (u &gt; n)
-  &#123;
-      for (int i = 1; i &lt;= n; i++)
-          cout &lt;&lt; num[i] &lt;&lt; &#39; &#39;;
-      cout &lt;&lt; endl;
-      return;
-  &#125;
-  for (int i = 1; i &lt;= n; i++) &#123;
-      if (!vis[i]) &#123;
-          num[u] = i;
-          vis[i] = true;
-          dfs(u + 1);                                                                                    
-          vis[i] = false;
-      &#125;
-  &#125;
-  return;
-&#125;
-int main()
-&#123;
-  cin &gt;&gt; n;
-  dfs(1);
-
-  return 0;
-&#125;</code></pre>
-</li>
-<li><p>借助STL的next_permutation(arr, arr + size)来实现;</p>
-<pre><code>//STL中的next_permutation(arr, arr + size);
-#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-#include&lt;vector&gt;
-using namespace std;
-int main()
-&#123;
-  int n;
-  vector&lt;int&gt; v;
-  cin&gt;&gt;n;
-  for(int i=1;i&lt;=n;i++)
-      v.push_back(i);
-  //若用while()语句则直接执行next_permutation（）函数，会少初始情况
-  do
-  &#123;
-      for(auto x:v)
-          cout&lt;&lt;x&lt;&lt;&#39; &#39;;
-      cout&lt;&lt;endl;
-  &#125;while(next_permutation(v.begin(),v.end()));    //记得有分号
-  return 0;
-&#125;</code></pre>
-</li>
+<li>递归实现</li>
 </ul>
-<ol start="2">
-<li><p>n皇后问题：在一个N*N的棋盘上放置N个皇后，使这N个皇后不能在同一行、同一列、同一斜线上。</p>
-<pre><code>#include&lt;iostream&gt;
-using namespace std;
-int n;
-const int Max = 100;            //注意把数组开大：因为后面有b[row-j+n]，不开大可能超出数组范围。
-bool col[Max], a[Max], b[Max];    //col：列，a：斜线，b：斜线
-char re[Max][Max];
-void dfs(int row)
-&#123;
- if (row == n)
- &#123;
-     for (int j = 0; j &lt; n; j++)
-         cout &lt;&lt; re[j]&lt;&lt;endl;
-     cout &lt;&lt; endl;
-     return;
- &#125;
-
- for (int j = 0; j &lt; n; j++)
- &#123;
-     if (!col[j] &amp;&amp; !a[row + j] &amp;&amp; !b[row-j + n])    //b[row-j+n]加了n之后，row-j+n和j-row+n效果一样
-     &#123;
-         re[row][j] = &#39;Q&#39;;
-         col[j] = a[row + j] = b[row-j + n] = true;
-         dfs(row + 1);
-         col[j] = a[row + j] = b[row-j + n] = false;
-         re[row][j] = &#39;.&#39;;                            //别忘记复原
-     &#125;
- &#125;
- return;
+<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> N = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">int</span> num[N],n;
+<span class="hljs-keyword">bool</span> vis[N];
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> u)</span>
+</span>&#123;
+	<span class="hljs-keyword">if</span> (u &gt; n)
+	&#123;
+		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)
+			<span class="hljs-built_in">cout</span> &lt;&lt; num[i] &lt;&lt; <span class="hljs-string">' '</span>;
+		<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) &#123;
+		<span class="hljs-keyword">if</span> (!vis[i]) &#123;
+			num[u] = i;
+			vis[i] = <span class="hljs-literal">true</span>;
+			dfs(u + <span class="hljs-number">1</span>);																					
+			vis[i] = <span class="hljs-literal">false</span>;
+		&#125;
+	&#125;
+	<span class="hljs-keyword">return</span>;
 &#125;
-int main()
-&#123;
- cin &gt;&gt; n;
- for (int i = 0; i &lt; n; i++)
-     for (int j = 0; j &lt; n; j++)
-         re[i][j] = &#39;.&#39;;
- dfs(0);
- return 0;
-&#125;</code></pre>
-</li>
-</ol>
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>&#123;
+	<span class="hljs-built_in">cin</span> &gt;&gt; n;
+	dfs(<span class="hljs-number">1</span>);
+
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
+<ul>
+<li>借助STL的next_permutation(arr, arr + size)来实现;</li>
+</ul>
+<pre class="highlight"><code class="c++"><span class="hljs-comment">//STL中的next_permutation(arr, arr + size);</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;algorithm&gt;</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;vector&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>&#123;
+	<span class="hljs-keyword">int</span> n;
+	<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; v;
+	<span class="hljs-built_in">cin</span>&gt;&gt;n;
+	<span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)
+		v.push_back(i);
+	<span class="hljs-comment">//若用while()语句则直接执行next_permutation（）函数，会少初始情况</span>
+	<span class="hljs-keyword">do</span>
+	&#123;
+		<span class="hljs-keyword">for</span>(<span class="hljs-keyword">auto</span> x:v)
+			<span class="hljs-built_in">cout</span>&lt;&lt;x&lt;&lt;<span class="hljs-string">' '</span>;
+		<span class="hljs-built_in">cout</span>&lt;&lt;<span class="hljs-built_in">endl</span>;
+	&#125;<span class="hljs-keyword">while</span>(next_permutation(v.<span class="hljs-built_in">begin</span>(),v.<span class="hljs-built_in">end</span>()));	<span class="hljs-comment">//记得有分号</span>
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
+<p>n皇后问题：在一个N*N的棋盘上放置N个皇后，使这N个皇后不能在同一行、同一列、同一斜线上。</p>
+<pre class="highlight"><code class="c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span></span>
+<span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> <span class="hljs-built_in">std</span>;
+<span class="hljs-keyword">int</span> n;
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> Max = <span class="hljs-number">100</span>;			<span class="hljs-comment">//注意把数组开大：因为后面有b[row-j+n]，不开大可能超出数组范围。</span>
+<span class="hljs-keyword">bool</span> col[Max], a[Max], b[Max];	<span class="hljs-comment">//col：列，a：斜线，b：斜线</span>
+<span class="hljs-keyword">char</span> re[Max][Max];
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> row)</span>
+</span>&#123;
+	<span class="hljs-keyword">if</span> (row == n)
+	&#123;
+		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++)
+			<span class="hljs-built_in">cout</span> &lt;&lt; re[j]&lt;&lt;<span class="hljs-built_in">endl</span>;
+		<span class="hljs-built_in">cout</span> &lt;&lt; <span class="hljs-built_in">endl</span>;
+		<span class="hljs-keyword">return</span>;
+	&#125;
+
+	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++)
+	&#123;
+		<span class="hljs-keyword">if</span> (!col[j] &amp;&amp; !a[row + j] &amp;&amp; !b[row-j + n])	<span class="hljs-comment">//b[row-j+n]加了n之后，row-j+n和j-row+n效果一样</span>
+		&#123;
+			re[row][j] = <span class="hljs-string">'Q'</span>;
+			col[j] = a[row + j] = b[row-j + n] = <span class="hljs-literal">true</span>;
+			dfs(row + <span class="hljs-number">1</span>);
+			col[j] = a[row + j] = b[row-j + n] = <span class="hljs-literal">false</span>;
+			re[row][j] = <span class="hljs-string">'.'</span>;							<span class="hljs-comment">//别忘记复原</span>
+		&#125;
+	&#125;
+	<span class="hljs-keyword">return</span>;
+&#125;
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>
+</span>&#123;
+	<span class="hljs-built_in">cin</span> &gt;&gt; n;
+	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++)
+		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++)
+			re[i][j] = <span class="hljs-string">'.'</span>;
+	dfs(<span class="hljs-number">0</span>);
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+&#125;
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -593,7 +595,7 @@ int main()
               <div class="tag-cloud-title">
               </div>
               <div class="tag-cloud-tags">
-              <a href="/tags/markdown/" style="font-size: 10px; color: #f38181">markdown</a> <a href="/tags/web/" style="font-size: 10px; color: #f38181">web</a> <a href="/tags/%E6%97%A5%E8%AE%B0/" style="font-size: 10px; color: #f38181">日记</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 20px; color: #95e1d3">模板</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px; color: #95e1d3">算法</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 20px; color: #95e1d3">阅读</a>
+              <a href="/tags/hexo/" style="font-size: 10px; color: #f38181">hexo</a> <a href="/tags/latex/" style="font-size: 10px; color: #f38181">latex</a> <a href="/tags/markdown/" style="font-size: 10px; color: #f38181">markdown</a> <a href="/tags/web/" style="font-size: 10px; color: #f38181">web</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 20px; color: #95e1d3">模板</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px; color: #95e1d3">算法</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 15px; color: #c4b1aa">阅读</a>
               </div>
             </div>
 
@@ -777,7 +779,7 @@ int main()
     <p style="font-family: 'Ubuntu', sans-serif;">
       <span style="color: #b9b9b9;padding-left: 20px;">
         <!-- 全网站字数统计wordcount -->
-        <i class="fa fa-line-chart"  aria-hidden="true" style="color: #ff9999;display:inline-block"></i> 博客全站共: <span class="post-count" style="color:#ff9999;">7.9k</span>字</span>
+        <i class="fa fa-line-chart"  aria-hidden="true" style="color: #ff9999;display:inline-block"></i> 博客全站共: <span class="post-count" style="color:#ff9999;">8.1k</span>字</span>
         <!-- 不蒜子网页计数器 -->
         
         <span style="padding-left: 20px;"><i class="fa fa-fire" aria-hidden="true" style="color: #ff9999;display:inline-block"></i><span id="busuanzi_container_site_pv">总访问量： <span id="busuanzi_value_site_pv" style="color:#ff9999;"></span>次</span>
