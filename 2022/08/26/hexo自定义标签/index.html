@@ -7,7 +7,7 @@
       name="viewport"
     />
     
-    <title itemprop="name">about | sunwarm</title>
+    <title itemprop="name">hexo自定义云标签 | sunwarm</title>
     
     <link rel="shortcut icon" href="/images/favicon.ico" />
     
@@ -394,88 +394,280 @@
   </div>
 </header>
 
-        <div class="pattern-center-blank"></div>
-  
-    <div class="pattern-center ">
-      <div class="pattern-attachment-img">
-        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.4/img/banner/about.jpg" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
-      </div>
-      <header class="pattern-header ">
-        <h1 class="entry-title">
-        关于</h1>
-      </header>
-    </div>
-  
-  <div id="content" class="site-content">
-    <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      
-<!-- 因为vue和botui更新导至bug,现将对话移至js下的botui中配置 -->
-<div class="entry-content">
-  <div class="moe-mashiro" style="text-align:center; font-size: 50px; margin-bottom: 20px;">[さくら荘のhojun]</div>
-  <div id="hello-mashiro" class="popcontainer" style="min-height: 300px; padding: 2px 6px 4px; background-color: rgba(242, 242, 242, 0.5); border-radius: 10px;">
-    <center>
-    <p>
-    </p>
-    <h4>
-    与&nbsp;<ruby>
-    Mashiro&nbsp;<rp>
-    （</rp>
-    <rt>
-    真（ま）白（しろ）</rt>
-    <rp>
-    ）</rp>
-    </ruby>
-    对话中...</h4>
-    <p>
-    </p>
-    </center>
-    <bot-ui></botui>
-  </div>
-</div>
-<script src="/js/botui.js"></script>
-<script>
-bot_ui_ini()
-</script>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
 
-      <!-- .entry-content -->
-      
-      <div class="single-reward">
-        <div class="reward-open">赏
-          <div class="reward-main">
-            <ul class="reward-row">
-              <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/custom/donate/1.jpg"></li>
-              <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/custom/donate/2.jpg"></li>
-            </ul>
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/23.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/23.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      hexo自定义云标签</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/avatar/sunwarm2001.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="">sunwarm</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2022-8-26<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+          <!-- 开始添加字数统计-->
+          
+            <!--文章字数统计和阅读时长-->
+<div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <!-- 安装插件npm install hexo-wordcount --save -->
+        <span class="post-count">721字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
+
+          
+          <!-- 添加完成 -->
+
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <meta name="referrer" content="no-referrer"/>
+<h2 id="效果预览"><a class="markdownIt-Anchor" href="#效果预览"></a> 效果预览</h2>
+<p><img src="https://gitee.com/sunwarm2001/pic-go/raw/master/20220826155521.png" alt="image-20220826155521397" /></p>
+<h2 id="1-自定义标签云"><a class="markdownIt-Anchor" href="#1-自定义标签云"></a> 1、自定义标签云</h2>
+<p>在该博客中，标签云的样式是参考cungudafa大佬的美化博客教程<a target="_blank" rel="noopener" href="https://cungudafa.blog.csdn.net/article/details/104616500">Hexo（sakura）自定义标签云</a></p>
+<h2 id="2-自定义分类"><a class="markdownIt-Anchor" href="#2-自定义分类"></a> 2、自定义分类</h2>
+<blockquote>
+<p>在该主题中，是将分类和标签云放到一起的，因此并没有在layout下单独创建新文件categories.ejs存放代码，而是把代码放到tags中。</p>
+</blockquote>
+<p>在sakura/layout/tags文件中添加代码：</p>
+<pre class="highlight"><code class="">&lt;!-- 自定义分类页 --&gt;
+&lt;%- partial('_partial/header') %&gt;
+&lt;main class=&quot;content&quot;&gt;
+  &lt;%- partial('_widget/category-cloud') %&gt; &lt;% if (site.categories &amp;&amp; site.categories.length &gt; 0) %&gt;
+&lt;/main&gt;
+
+</code></pre>
+<p>在sakura/layout/_widget下新建文件：<code>category-cloud.ejs</code></p>
+<pre class="highlight"><code class="">&lt;%
+var colorArr = ['#F9EBEA', '#F5EEF8', '#D5F5E3', '#E8F8F5', '#FEF9E7',
+    '#F8F9F9', '#82E0AA', '#D7BDE2', '#A3E4D7', '#85C1E9', '#F8C471', '#F9E79F', '#FFF'];
+var colorCount = colorArr.length;
+var hashCode = function (str) &#123;
+    if (!str &amp;&amp; str.length === 0) &#123;
+        return 0;
+    &#125;
+
+    var hash = 0;
+    for (var i = 0, len = str.length; i &lt; len; i++) &#123;
+        hash = ((hash &lt;&lt; 5) - hash) + str.charCodeAt(i);
+        hash |= 0;
+    &#125;
+    return hash;
+&#125;;
+var i = 0;
+var isCategory = is_category();
+%&gt;
+
+&lt;div id=&quot;category-cloud&quot; class=&quot;container chip-container&quot;&gt;
+    &lt;div class=&quot;card&quot;&gt;
+        &lt;div class=&quot;card-content&quot;&gt;
+            &lt;div class=&quot;tag-title center-align&quot;&gt;
+                &lt;i class=&quot;fa fa-bookmark&quot;&gt;&lt;/i&gt;&amp;nbsp;&amp;nbsp;文章分类
+            &lt;/div&gt;
+            &lt;div class=&quot;tag-chips&quot;&gt;
+                &lt;% if (site.categories &amp;&amp; site.categories.length &gt; 0) &#123; %&gt;
+                &lt;% site.categories.map(function(category) &#123; %&gt;
+                &lt;%
+                    i++;
+                    var color = i &gt;= colorCount ? colorArr[Math.abs(hashCode(category.name) % colorCount)]
+                            : colorArr[i - 1];
+                %&gt;
+                &lt;a href=&quot;&lt;%- url_for(category.path) %&gt;&quot; title=&quot;&lt;%- category.name %&gt;: &lt;%- category.length %&gt;&quot;&gt;
+                    &lt;span class=&quot;chip center-align waves-effect waves-light
+                            &lt;% if (isCategory &amp;&amp; category.name == page.category) &#123; %&gt; chip-active &lt;% &#125; else &#123; %&gt; chip-default &lt;% &#125; %&gt;&quot;
+                            style=&quot;background-color: &lt;%- color %&gt;;&quot;&gt;&lt;%- category.name %&gt;
+                        &lt;span class=&quot;tag-length&quot;&gt;&lt;%- category.length %&gt;&lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/a&gt;
+                &lt;% &#125;); %&gt;
+                &lt;% &#125; else &#123; %&gt;
+                &lt;%= __('categoryEmptyTip') %&gt;
+                &lt;% &#125; %&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+</code></pre>
+<p>参考博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011759205/article/details/104839472">Hexo-Sakura主题美化</a></p>
+<h2 id="拓展应用"><a class="markdownIt-Anchor" href="#拓展应用"></a> 拓展应用：</h2>
+<p>在layout/category.ejs文件中添加代码，可以在所有分类页面中显示云标签和分类页</p>
+<pre class="highlight"><code class="">&lt;!-- 自定义云标签 --&gt;
+&lt;div class=&quot;blank&quot; style=&quot;padding-top: 75px&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;content&quot; class=&quot;site-content&quot;&gt;
+  &lt;div id=&quot;main&quot;&gt;
+    &lt;header class=&quot;page-header&quot;&gt;
+      &lt;h1 class=&quot;cat-title&quot;&gt;标签云&lt;/h1&gt;
+      &lt;span class=&quot;cat-des&quot;&gt;
+        &lt;p&gt;&lt;%- &quot;Tags &quot; + site.tags.length %&gt;&lt;/p&gt;
+      &lt;/span&gt;
+    &lt;/header&gt;
+    &lt;div id=&quot;main-part&quot;&gt;
+      &lt;div class=&quot;tag-cloud&quot;&gt;
+        &lt;div class=&quot;tag-cloud-title&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;tag-cloud-tags&quot;&gt;
+          &lt;%- tagcloud(&#123; min_font: 15, max_font: 30, amount: 200, color: true, start_color:
+          '#ff6666', end_color: '#0099cc' &#125;) %&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 自定义分类页 --&gt;
+&lt;%- partial('_partial/header') %&gt;
+&lt;main class=&quot;content&quot;&gt;
+  &lt;%- partial('_widget/category-cloud') %&gt; &lt;% if (site.categories &amp;&amp; site.categories.length &gt; 0) %&gt;
+&lt;/main&gt;
+
+</code></pre>
+<p>如在《技术》分类页面中显示，效果预览：</p>
+<p><img src="https://gitee.com/sunwarm2001/pic-go/raw/master/20220826155450.png" alt="image-20220826155450363" /></p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/custom/donate/1.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/custom/donate/2.jpg"></li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-      <footer class="post-footer">
-        <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-        <div class="post-tags">
-        </div>
-        <div class="post-share">
-          <div class="social-share sharehidden share-component"></div>
-          <i class="iconfont show-share icon-forward"></i>
-        </div>
-      </footer><!-- .entry-footer -->
-    </article>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+            <div class="tag-cloud">
+              <div class="tag-cloud-title">
+              </div>
+              <div class="tag-cloud-tags">
+              <a href="/tags/hexo/" style="font-size: 20px; color: #95e1d3">hexo</a> <a href="/tags/latex/" style="font-size: 10px; color: #f38181">latex</a> <a href="/tags/markdown/" style="font-size: 10px; color: #f38181">markdown</a> <a href="/tags/typora/" style="font-size: 10px; color: #f38181">typora</a> <a href="/tags/web/" style="font-size: 10px; color: #f38181">web</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 10px; color: #f38181">图床</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 20px; color: #95e1d3">模板</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px; color: #95e1d3">算法</a> <a href="/tags/%E7%BE%8E%E5%8C%96/" style="font-size: 10px; color: #f38181">美化</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 15px; color: #c4b1aa">阅读</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
       <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2022/08/26/hexo%E8%A7%A3%E5%86%B3%E5%9B%BE%E5%BA%8A%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/28.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/28.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                typora引用图床图片</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2022/08/25/hexo%E6%9B%B4%E6%8D%A2markdown%E6%B8%B2%E6%9F%93%E5%99%A8&%E9%85%8D%E7%BD%AEkatex/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/25.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/25.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                hexo + KaTex</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "dquiec0Mu5euKiDRrNaA8chH-gzGzoHsz",
+        appKey: "bwtQQPXTuxXeVnaPsO7S1e2R",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/avatar/sunwarm2001.jpg" itemprop="image" alt="美食の小屋" height="70" width="70"></a>
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/avatar/sunwarm2001.jpg" itemprop="image" alt="sunwarm" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author">美食の小屋</a>
+            <a href="" itemprop="url" rel="author">sunwarm</a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i>越努力越进步越开心越自信</p>
+        <p><i class="iconfont icon-write"></i></p>
       </section>
+    </main><!-- #main -->
   </div><!-- #primary -->
 </div>
+
+
+
+
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>

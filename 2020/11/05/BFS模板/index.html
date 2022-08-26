@@ -1,77 +1,99 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-  
-  <title itemprop="name">BFS模板 | sunwarm</title>
-  
-    <link rel="shortcut icon" href="/images/favicon.ico">
-  
-  <meta http-equiv="x-dns-prefetch-control" content="on">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
-  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
-  <link rel="stylesheet" href="/css/lib.min.css" media="all">
-  <link rel="stylesheet" href="/css/font.css" media="all">
-  <link rel="stylesheet" href="/css/insight.css" media="all">
-  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
-  <link rel="stylesheet" href="/css/zoom.css" media="all">
-  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-  
-  <!-- 自定义logo -->
-  <link rel="stylesheet" type="text/css" href="/css/logo.css">
-  <link rel="stylesheet" type="text/css" href="/fonts/LOGO/logo.css">
-  
-  <!--引入标签云-->
-  <link rel="stylesheet" href="/css/tags.css" media="all">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      name="viewport"
+    />
+    
+    <title itemprop="name">BFS模板 | sunwarm</title>
+    
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    
+    <meta http-equiv="x-dns-prefetch-control" content="on" />
 
-<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+    <!-- typora引用图床图片 -->
+    <meta name="referrer" content="no-referrer" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC"
+      media="all"
+    />
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/css/lib.min.css" media="all" />
+    <link rel="stylesheet" href="/css/font.css" media="all" />
+    <link rel="stylesheet" href="/css/insight.css" media="all" />
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all" />
+    <link rel="stylesheet" href="/css/zoom.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="/css/sharejs.css" />
+
+    <!-- 自定义logo -->
+    <link rel="stylesheet" type="text/css" href="/css/logo.css" />
+    <link rel="stylesheet" type="text/css" href="/fonts/LOGO/logo.css" />
+
+    <!--引入标签云-->
+    <link rel="stylesheet" href="/css/tags.css" media="all" />
+
+    <!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
 " type="text/css" media="all"> -->
-  <script>
-  /*Initial Variables*/
-  var mashiro_option = new Object();
-  var mashiro_global = new Object();
-  mashiro_option.NProgressON = true;
-  /* 
-   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
-   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
-   */
-  mashiro_option.email_domain = "";
-  mashiro_option.email_name = "";
-  mashiro_option.cookie_version_control = "";
-  mashiro_option.qzone_autocomplete = false;
-  mashiro_option.site_name = "sunwarm美食の小屋";
-  mashiro_option.author_name = "美食の小屋";
-  mashiro_option.site_url = "";
-  mashiro_option.v_appId = "dquiec0Mu5euKiDRrNaA8chH-gzGzoHsz";
-  mashiro_option.v_appKey = "bwtQQPXTuxXeVnaPsO7S1e2R";
-  mashiro_option.mathjax = "0";
-  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
-  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+    <script>
+      /*Initial Variables*/
+      var mashiro_option = new Object();
+      var mashiro_global = new Object();
+      mashiro_option.NProgressON = true;
+      /*
+       * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+       * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+       */
+      mashiro_option.email_domain = '';
+      mashiro_option.email_name = '';
+      mashiro_option.cookie_version_control = '';
+      mashiro_option.qzone_autocomplete = false;
+      mashiro_option.site_name = 'sunwarm美食の小屋';
+      mashiro_option.author_name = '美食の小屋';
+      mashiro_option.site_url = '';
+      mashiro_option.v_appId = 'dquiec0Mu5euKiDRrNaA8chH-gzGzoHsz';
+      mashiro_option.v_appKey = 'bwtQQPXTuxXeVnaPsO7S1e2R';
+      mashiro_option.mathjax = '0';
+      mashiro_option.qq_api_url = 'https://api.mashiro.top/qqinfo/';
+      mashiro_option.qq_avatar_api_url = 'https://api.mashiro.top/qqinfo/';
 
-  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
-  // mashiro_option.float_player_on = true;
+      // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+      // mashiro_option.float_player_on = true;
 
-  /*End of Initial Variables*/
-  </script>
-  <script type="text/javascript">
-  var bg = "https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/1.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/2.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/3.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/4.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/6.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/8.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/10.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/11.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/15.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/20.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/28.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/90.jpg.webp".split(",");
-  var bgindex = Math.floor(Math.random()*bg.length);
-  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
-    alert('朋友，IE浏览器未适配哦~');
-  }
-  </script>
-  <style type="text/css">
-  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
-  </style>
-  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
-  </style>
-<!-- hexo injector head_end start -->
+      /*End of Initial Variables*/
+    </script>
+    <script type="text/javascript">
+      var bg = 'https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/1.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/2.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/3.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/4.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/6.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/8.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/10.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/11.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/15.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/20.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/28.jpg.webp,https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/cover/90.jpg.webp'.split(',');
+      var bgindex = Math.floor(Math.random() * bg.length);
+      if (!!window.ActiveXObject || 'ActiveXObject' in window) {
+        //is IE?
+        alert('朋友，IE浏览器未适配哦~');
+      }
+    </script>
+    <style type="text/css">
+      .hljs-ln {
+        border-collapse: collapse;
+      }
+      .hljs-ln td {
+        padding: 0;
+      }
+      .hljs-ln-n:before {
+        content: attr(data-line-number);
+      }
+    </style>
+    <style type="text/css">
+      .site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+    </style>
+  <!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+</html>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <div class="scrollbar" id="bar">
@@ -248,9 +270,9 @@
                       </li>
                     
                       <li>
-                        <a href="/categories/%E8%B5%84%E6%BA%90/">
-                          <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                          资源
+                        <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                          <i class="fa fa-book" aria-hidden="true"></i>
+                          转载
                         </a>
                       </li>
                     
@@ -262,7 +284,7 @@
                 <a href="javascript:;">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
-                    清单
+                    兴趣
                   </span>
                 </a>
                 
@@ -324,7 +346,7 @@
                 <a href="/donate/">
                   <span class="faa-parent animated-hover">
                     <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
-                    赞赏
+                    投喂
                   </span>
                 </a>
                 
@@ -362,26 +384,6 @@
                       </li>
                     
                   </ul>
-                
-              </li>
-            
-              <li>
-                <a href="/client/">
-                  <span class="faa-parent animated-hover">
-                    <i class="fa  fa-android faa-vertical" aria-hidden="true"></i>
-                    客户端
-                  </span>
-                </a>
-                
-              </li>
-            
-              <li>
-                <a href="/atom.xml">
-                  <span class="faa-parent animated-hover">
-                    <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
-                    RSS
-                  </span>
-                </a>
                 
               </li>
             
@@ -454,9 +456,9 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="bfs模板"><a class="markdownIt-Anchor" href="#bfs模板"></a> BFS模板</h2>
+          <h2 id="bfs-模板"><a class="markdownIt-Anchor" href="#bfs-模板"></a> BFS 模板</h2>
 <p><code>解决问题：最优解问题，如最短路径</code></p>
-<h4 id="bfs思路队列queue"><a class="markdownIt-Anchor" href="#bfs思路队列queue"></a> BFS思路：队列queue</h4>
+<h4 id="bfs-思路队列-queue"><a class="markdownIt-Anchor" href="#bfs-思路队列-queue"></a> BFS 思路：队列 queue</h4>
 <pre class="highlight"><code class="">初始化队列Q
 Q=&#123;起点s&#125;
 标记起点s已被访问
@@ -473,7 +475,7 @@ while (Q非空)
 &#125;
 </code></pre>
 <h4 id="题目"><a class="markdownIt-Anchor" href="#题目"></a> 题目：</h4>
-<p>走迷宫：给定一个N*M方格的迷宫，其中<code>.</code>代表可通过，<code>*</code>代表障碍物。问: 每个方格最多经过1次，有多少种从<strong>左上角</strong>到<strong>右下角</strong>的方案。在迷宫中移动有上下左右四种方式，每次只能移动一个方格。数据保证起点上没有障碍。</p>
+<p>走迷宫：给定一个 N*M 方格的迷宫，其中<code>.</code>代表可通过，<code>*</code>代表障碍物。问: 每个方格最多经过 1 次，有多少种从<strong>左上角</strong>到<strong>右下角</strong>的方案。在迷宫中移动有上下左右四种方式，每次只能移动一个方格。数据保证起点上没有障碍。</p>
 <pre class="highlight"><code class="">#include&lt;iostream&gt;
 #include&lt;queue&gt;
 using namespace std;
@@ -521,7 +523,7 @@ void bfs()
 			if (check(dx, dy) &amp;&amp; map[dx][dy] == 0 &amp;&amp; vis[dx][dy] == false)
 			&#123;
 				vis[dx][dy] = true;
-				p.push(Node(dx, dy, next.d + 1));	
+				p.push(Node(dx, dy, next.d + 1));
 			&#125;
 		&#125;
 	&#125;
@@ -557,7 +559,7 @@ int main()
               <div class="tag-cloud-title">
               </div>
               <div class="tag-cloud-tags">
-              <a href="/tags/hexo/" style="font-size: 10px; color: #f38181">hexo</a> <a href="/tags/latex/" style="font-size: 10px; color: #f38181">latex</a> <a href="/tags/markdown/" style="font-size: 10px; color: #f38181">markdown</a> <a href="/tags/web/" style="font-size: 10px; color: #f38181">web</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 20px; color: #95e1d3">模板</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px; color: #95e1d3">算法</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 15px; color: #c4b1aa">阅读</a>
+              <a href="/tags/hexo/" style="font-size: 20px; color: #95e1d3">hexo</a> <a href="/tags/latex/" style="font-size: 10px; color: #f38181">latex</a> <a href="/tags/markdown/" style="font-size: 10px; color: #f38181">markdown</a> <a href="/tags/typora/" style="font-size: 10px; color: #f38181">typora</a> <a href="/tags/web/" style="font-size: 10px; color: #f38181">web</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 10px; color: #f38181">图床</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 20px; color: #95e1d3">模板</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px; color: #95e1d3">算法</a> <a href="/tags/%E7%BE%8E%E5%8C%96/" style="font-size: 10px; color: #f38181">美化</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 15px; color: #c4b1aa">阅读</a>
               </div>
             </div>
 
@@ -741,7 +743,7 @@ int main()
     <p style="font-family: 'Ubuntu', sans-serif;">
       <span style="color: #b9b9b9;padding-left: 20px;">
         <!-- 全网站字数统计wordcount -->
-        <i class="fa fa-line-chart"  aria-hidden="true" style="color: #ff9999;display:inline-block"></i> 博客全站共: <span class="post-count" style="color:#ff9999;">8.1k</span>字</span>
+        <i class="fa fa-line-chart"  aria-hidden="true" style="color: #ff9999;display:inline-block"></i> 博客全站共: <span class="post-count" style="color:#ff9999;">9k</span>字</span>
         <!-- 不蒜子网页计数器 -->
         
         <span style="padding-left: 20px;"><i class="fa fa-fire" aria-hidden="true" style="color: #ff9999;display:inline-block"></i><span id="busuanzi_container_site_pv">总访问量： <span id="busuanzi_value_site_pv" style="color:#ff9999;"></span>次</span>
@@ -940,9 +942,9 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/%E8%B5%84%E6%BA%90/">
-                  <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                  资源
+                <a href="/categories/%E8%BD%AC%E8%BD%BD/">
+                  <i class="fa fa-book" aria-hidden="true"></i>
+                  转载
                 </a>
               </li>
             
@@ -954,7 +956,7 @@ $(document).ready(function() {
         <a href="javascript:;">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-list-ul faa-vertical" aria-hidden="true"></i>
-            清单
+            兴趣
           </span>
         </a>
         
@@ -1016,7 +1018,7 @@ $(document).ready(function() {
         <a href="/donate/">
           <span class="faa-parent animated-hover">
             <i class="fa  fa-heart faa-pulse" aria-hidden="true"></i>
-            赞赏
+            投喂
           </span>
         </a>
         
@@ -1057,26 +1059,6 @@ $(document).ready(function() {
         
       </li>
     
-      <li>
-        <a href="/client/">
-          <span class="faa-parent animated-hover">
-            <i class="fa  fa-android faa-vertical" aria-hidden="true"></i>
-            客户端
-          </span>
-        </a>
-        
-      </li>
-    
-      <li>
-        <a href="/atom.xml">
-          <span class="faa-parent animated-hover">
-            <i class="fa  fa-rss faa-pulse" aria-hidden="true"></i>
-            RSS
-          </span>
-        </a>
-        
-      </li>
-    
   </ul>
   <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
 </div>
@@ -1113,7 +1095,7 @@ $(document).ready(function() {
 </style>
 <meting-js
 
-    id="2660651585"
+    id="2567949966"
 
     server="netease"
 
