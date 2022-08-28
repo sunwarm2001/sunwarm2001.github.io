@@ -428,7 +428,7 @@
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
         <!-- 安装插件npm install hexo-wordcount --save -->
-        <span class="post-count">721字</span>
+        <span class="post-count">716字</span>
       </span>
     </span>
 
@@ -465,9 +465,8 @@
 <blockquote>
 <p>在该主题中，是将分类和标签云放到一起的，因此并没有在layout下单独创建新文件categories.ejs存放代码，而是把代码放到tags中。</p>
 </blockquote>
-<p>在sakura/layout/tags文件中添加代码：</p>
+<p>在sakura/layout/tags文件下的<code>id=content的div块</code>中添加代码：</p>
 <pre class="highlight"><code class="">&lt;!-- 自定义分类页 --&gt;
-&lt;%- partial('_partial/header') %&gt;
 &lt;main class=&quot;content&quot;&gt;
   &lt;%- partial('_widget/category-cloud') %&gt; &lt;% if (site.categories &amp;&amp; site.categories.length &gt; 0) %&gt;
 &lt;/main&gt;
@@ -528,9 +527,9 @@ var isCategory = is_category();
 <p>参考博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u011759205/article/details/104839472">Hexo-Sakura主题美化</a></p>
 <h2 id="拓展应用"><a class="markdownIt-Anchor" href="#拓展应用"></a> 拓展应用：</h2>
 <p>在layout/category.ejs文件中添加代码，可以在所有分类页面中显示云标签和分类页</p>
-<pre class="highlight"><code class="">&lt;!-- 自定义云标签 --&gt;
-&lt;div class=&quot;blank&quot; style=&quot;padding-top: 75px&quot;&gt;&lt;/div&gt;
+<pre class="highlight"><code class="">&lt;div class=&quot;blank&quot; style=&quot;padding-top: 75px&quot;&gt;&lt;/div&gt;
 &lt;div id=&quot;content&quot; class=&quot;site-content&quot;&gt;
+  &lt;!-- 自定义云标签 --&gt;
   &lt;div id=&quot;main&quot;&gt;
     &lt;header class=&quot;page-header&quot;&gt;
       &lt;h1 class=&quot;cat-title&quot;&gt;标签云&lt;/h1&gt;
@@ -548,13 +547,12 @@ var isCategory = is_category();
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
+  &lt;!-- 自定义分类页 --&gt;
+  &lt;main class=&quot;content&quot;&gt;
+    &lt;%- partial('_widget/category-cloud') %&gt; &lt;% if (site.categories &amp;&amp; site.categories.length &gt; 0)
+    %&gt;
+  &lt;/main&gt;
 &lt;/div&gt;
-
-&lt;!-- 自定义分类页 --&gt;
-&lt;%- partial('_partial/header') %&gt;
-&lt;main class=&quot;content&quot;&gt;
-  &lt;%- partial('_widget/category-cloud') %&gt; &lt;% if (site.categories &amp;&amp; site.categories.length &gt; 0) %&gt;
-&lt;/main&gt;
 
 </code></pre>
 <p>如在《技术》分类页面中显示，效果预览：</p>
