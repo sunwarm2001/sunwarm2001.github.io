@@ -7,7 +7,7 @@
       name="viewport"
     />
     
-    <title itemprop="name">hexo + KaTex | sunwarm</title>
+    <title itemprop="name">python问题合集 | sunwarm</title>
     
     <link rel="shortcut icon" href="/images/favicon.ico" />
     
@@ -400,15 +400,15 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/25.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/25.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/30.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/30.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      hexo + KaTex</h1>
+      python问题合集</h1>
       <p class="entry-census">
         <span>
           <a href="">
-            <img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/sunwarm.jpg">
+            <img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/avatar/sunwarm2001.jpg">
           </a>
         </span>
         <span>
@@ -416,7 +416,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2022-8-25<span class="bull">
+        2022-9-9<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
           <!-- 开始添加字数统计-->
@@ -428,7 +428,7 @@
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
         <!-- 安装插件npm install hexo-wordcount --save -->
-        <span class="post-count">332字</span>
+        <span class="post-count">89字</span>
       </span>
     </span>
 
@@ -456,49 +456,16 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h4 id="markdown-常用渲染器"><a class="markdownIt-Anchor" href="#markdown-常用渲染器"></a> markdown 常用渲染器</h4>
+          <ul>
+<li>报错问题：<code>Torch not compiled with CUDA enabled</code></li>
+<li>报错原因：电脑pytorch下载的是cpu版本，不是cuda版本</li>
+<li>解决问题：
 <ul>
-<li>hexo-renderer-marked：hexo 默认的渲染器，不支持复杂的数学公式</li>
-<li>hexo-renderer-kramed：支持复杂的数学公式，mathjax 的渲染方式</li>
-<li>hexo-renderer-markdown-it：取代第一个的渲染器，渲染更快，更符合 CommonMark 规则。</li>
-<li>hexo-renderer-markdown-it-katex：跟上一个差不多，但是不用设置就支持 katex</li>
-<li>hexo-renderer-markdown-it-plus：好用，可以自己决定是否要渲染 katex 公式。此外能渲染的东西多，但是已经不维护了。</li>
-<li>@upupming/hexo-renderer-markdown-it-plus ：上一个的升级版。好用。支持的功能多。</li>
+<li>方法一：添加语句<code>device = ('cuda' if torch.cuda.is_available() else 'cpu')</code>，并将所有的<code>.cuda()</code>替换成<code>to(device)</code></li>
+<li>方法二：将<code>torch.load(&quot;/home/model/model_J18.pth.tar&quot;)</code>替换<code>torch.load(&quot;C:/Users/user/Desktop/CoRRN/CoRRN/model/model_J18.pth.tar&quot;,map_location = 'cpu')</code></li>
 </ul>
-<h2 id="安装-markdown-渲染器"><a class="markdownIt-Anchor" href="#安装-markdown-渲染器"></a> 安装 markdown 渲染器</h2>
-<p>说明：hexo 默认的 markdown 渲染器是 hexo-renderer-marked，但该渲染器不支持 LaTex 数学公式。因此该博客使用<code>@upupming/hexo-renderer-markdown-it-plus插件</code></p>
-<p>1、卸载原来的渲染器</p>
-<p><code>npm uninstall hexo-renderer-marked --save</code></p>
-<p>2、下载新渲染器</p>
-<p><code>npm i @upupming/hexo-renderer-markdown-it-plus --save</code></p>
-<h2 id="配置-katex-用于数学公式-latex"><a class="markdownIt-Anchor" href="#配置-katex-用于数学公式-latex"></a> 配置 KaTex 用于数学公式 LaTex</h2>
-<p>1、在根目录的_config.yml 中添加：</p>
-<pre class="highlight"><code class="">markdown_it_plus:
-    highlight: true
-    html: true
-    xhtmlOut: true
-    breaks: true
-    langPrefix:
-    linkify: true
-    typographer:
-    quotes: “”‘’
-    pre_class: highlight
-</code></pre>
-<p>2、在 themes\sakura_config.yml 中添加：</p>
-<pre class="highlight"><code class=""># Math Equations Render Support
-math:
-  enable: true
-  per_page: false
-  engine: katex
-  katex:
-    https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css
-</code></pre>
-<p>参考博客：<br />
-<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_36667170/article/details/105846999">hexo 更换 markdown 渲染器</a><br />
-<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@upupming/hexo-renderer-markdown-it-plus">插件官网文档</a><br />
-<a target="_blank" rel="noopener" href="https://jun-wang-2018.github.io/MyBlog/en/hexo-and-katex/">Hexo 和 KaTeX</a></p>
-<p>遇到的问题：</p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/267011398">Hexo 使用 LaTeX 公式重复显示</a></p>
+</li>
+</ul>
 
         </div>
         <!-- .entry-content -->
@@ -538,15 +505,15 @@ math:
           
             <div class="post-nepre half previous">
           
-            <a href="/2022/08/26/hexo%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%87%E7%AD%BE/" rel="prev">
+            <a href="/2022/09/10/c%E7%9B%98%E6%B8%85%E7%90%86/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/23.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/23.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/32.jpgc" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/32.jpgc">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                hexo自定义云标签</h3>
+                c盘清理</h3>
                 <hr>
               </div>
             </a>
@@ -556,15 +523,15 @@ math:
           
             <div class="post-nepre half next">
           
-            <a href="/2020/11/13/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%80%9D%E6%83%B3/" rel="next">
+            <a href="/2022/08/26/hexo%E8%A7%A3%E5%86%B3%E5%9B%BE%E5%BA%8A%E5%9B%BE%E7%89%87%E5%BC%95%E7%94%A8/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/23.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/23.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/28.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/myown/28.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                基础算法模板思路</h3>
+                typora引用图床图片</h3>
                 <hr>
               </div>
             </a>
@@ -588,7 +555,7 @@ math:
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn@1.0/img/myown/sunwarm.jpg" itemprop="image" alt="sunwarm" height="70" width="70"></a>
+          <a href="" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/sunwarm2001/cdn/img/avatar/sunwarm2001.jpg" itemprop="image" alt="sunwarm" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
