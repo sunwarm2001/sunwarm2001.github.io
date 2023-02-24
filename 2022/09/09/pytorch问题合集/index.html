@@ -428,7 +428,7 @@
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
         <!-- 安装插件npm install hexo-wordcount --save -->
-        <span class="post-count">89字</span>
+        <span class="post-count">1.8k字</span>
       </span>
     </span>
 
@@ -437,7 +437,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
+        <span class="post-count">8分</span>
       </span>
     </span>
 </div>
@@ -456,16 +456,249 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <ul>
-<li>报错问题：<code>Torch not compiled with CUDA enabled</code></li>
+          <h2 id="问题1torch-not-compiled-with-cuda-enabled"><a class="markdownIt-Anchor" href="#问题1torch-not-compiled-with-cuda-enabled"></a> 问题1：Torch not compiled with CUDA enabled</h2>
+<ul>
 <li>报错原因：电脑pytorch下载的是cpu版本，不是cuda版本</li>
-<li>解决问题：
+<li>解决方法：
 <ul>
 <li>方法一：添加语句<code>device = ('cuda' if torch.cuda.is_available() else 'cpu')</code>，并将所有的<code>.cuda()</code>替换成<code>to(device)</code></li>
 <li>方法二：将<code>torch.load(&quot;/home/model/model_J18.pth.tar&quot;)</code>替换<code>torch.load(&quot;C:/Users/user/Desktop/CoRRN/CoRRN/model/model_J18.pth.tar&quot;,map_location = 'cpu')</code></li>
 </ul>
 </li>
 </ul>
+<h2 id="问题2cvimshow数报错error-215assertion-failed-sizewidth0-sizeheight0-in-function-cvimshow"><a class="markdownIt-Anchor" href="#问题2cvimshow数报错error-215assertion-failed-sizewidth0-sizeheight0-in-function-cvimshow"></a> 问题2：cv.imshow()数报错：error: (-215:Assertion failed) size.width&gt;0 &amp;&amp; size.height&gt;0 in function ‘cv::imshow’</h2>
+<ul>
+<li>
+<p>可能原因：</p>
+<p>1、图像路径加载错误，比如“F:\study\lenmon.png”，此处需要使用双斜杠“F:\\study\\lenmon.png”，或者“F:/study/lenmon.png”</p>
+<p>2、<strong>(关键点）OpenCV的图片路径不能使用中文路径</strong>，文件名也不能使用中文名</p>
+</li>
+</ul>
+<h2 id="问题3imshow弹出窗口图片未响应无法显示图片"><a class="markdownIt-Anchor" href="#问题3imshow弹出窗口图片未响应无法显示图片"></a> 问题3：imshow()弹出窗口图片未响应；无法显示图片</h2>
+<ul>
+<li>
+<p>解决方法：添加以下代码</p>
+<pre class="highlight"><code class="">cv2.imshow(&quot;Image&quot;,image)
+cv2.waitKey()
+cv2.destroyAllWindows()
+</code></pre>
+</li>
+</ul>
+<h2 id="服务器网络问题"><a class="markdownIt-Anchor" href="#服务器网络问题"></a> 服务器网络问题</h2>
+<ul>
+<li>报错提示：在服务器上跑代码，在执行到Downloading语句时出现以下两条Error报错语句</li>
+</ul>
+<pre class="highlight"><code class="">执行：Downloading https://ultralytics.com/assets/Arial.ttf to /public/home/yangmx/.config/Ultralytics/Arial.ttf...
+报错：socket.gaierror: [Errno -2] Name or service not known
+	urllib.error.URLError: &lt;urlopen error [Errno -2] Name or service not known&gt;
+</code></pre>
+<ul>
+<li>报错原因：服务器的网不行，下载Arial.ttf文件失败</li>
+<li>解决方法： 点击该链接将文件Arial.ttf下载到本地，然后上传到服务器/public/home/yangmx/.config/Ultralytics/Arial.ttf下。重新跑代码即可。</li>
+</ul>
+<p><img src="https://gitee.com/sunwarm2001/pic-go/raw/master/20221008235139.png" alt="image-20221008235138968" /></p>
+<p><img src="https://gitee.com/sunwarm2001/pic-go/raw/master/20221008235221.png" alt="image-20221008235221051" /></p>
+<p><strong>纪念一下，今天一天运行两个项目，报的都是这种错，跑了十几遍还是这样，不管用不用外网也没用，晚上和师兄咨询了下才知道究其原因是服务器网的问题，只能自己手动下载</strong></p>
+<h2 id="报错问题5cant-conver-cuda0-device-tensor-to-numpy"><a class="markdownIt-Anchor" href="#报错问题5cant-conver-cuda0-device-tensor-to-numpy"></a> 报错问题5：can’t conver cuda:0 device tensor to numpy.</h2>
+<ul>
+<li>报错原因： <strong>numpy不能读取CUDA tensor ，需要将它转化为 CPU tensor</strong></li>
+<li>解决办法：将报错代码self.numpy()改为<code>self.cpu().numpy()</code>即可</li>
+</ul>
+<p><img src="https://gitee.com/sunwarm2001/pic-go/raw/master/20221009001523.png" alt="image-20221009001523061" /></p>
+<h2 id="anaconda默认镜像源访问过慢"><a class="markdownIt-Anchor" href="#anaconda默认镜像源访问过慢"></a> anaconda默认镜像源访问过慢</h2>
+<ul>
+<li>
+<p>报错提示：CondaHTTPError: HTTP 000 CONNECTION FAILED for url <a target="_blank" rel="noopener" href="https://repo.anaconda.com/pkgs/main/noarc">https://repo.anaconda.com/pkgs/main/noarc</a></p>
+</li>
+<li>
+<p>报错原因：anaconda默认镜像源访问速度过慢，会导致超时从而导致更新和下载失败。</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/sunwarm2001/pic-go/raw/master/20221103215507.png" alt="image-20221103215500662" /></p>
+<ul>
+<li>
+<p>解决方法：将默认镜像源更换为清华镜像源，并且删除默认镜像源。</p>
+<ul>
+<li>
+<p><strong>情况1：服务器(终端)修改：</strong></p>
+<ul>
+<li>
+<p>法1：在cmd终端中直接输入下列命令</p>
+<pre class="highlight"><code class="">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
+conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/free/
+conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda config --add channels http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --set show_channel_urls yes
+</code></pre>
+</li>
+<li>
+<p>法2：输入指令<code>conda config</code>命令从而生成<code>.condarc</code>文件，然后输入情况2的命令。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>情况2：本地修改</strong></p>
+<p>找到.condarc文件（C盘–用户–用户名文件夹目录下）之后删除原来的内容，复制粘贴如下命令：</p>
+<pre class="highlight"><code class="">channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  msys2: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch-lts: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  simpleitk: http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+</code></pre>
+<pre class="highlight"><code class="">show_channel_urls: true
+
+channels:
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+  - http://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>其他bug解决方案：</p>
+<ul>
+<li>1、没有<code>.condarc</code>文件：是因为没有在cmd命令中输入 conda config命令，只有第一次输入该命令之后，系统才会自动创建.condarc文件。（.condarc指的是运行期配置文件）</li>
+<li>2、如果镜像源地址是 https开头，可以直接改成http即可。（因为https有时候会出现连接错误的问题，改成http后不会再出现此类问题。）</li>
+<li>3、有的博客说删除<code>.condarc</code>文件的 <code>-default</code>配置行？</li>
+</ul>
+</li>
+</ul>
+<h2 id="防止google-colab自动断开连接"><a class="markdownIt-Anchor" href="#防止google-colab自动断开连接"></a> 防止google colab自动断开连接</h2>
+<ul>
+<li>
+<p>说明：colab理论上最多可以连续工作12小时，这之后就会再重新分配资源，但这之中也会存在因为<strong>网络原因或者过久没有交互</strong>而导致的disconnect的情况，因此上述内容主要是为了解决这种问题的。但是如果<font color='red'>训练的时间本身就是超过12小时所以断开了，那就不适用了</font></p>
+</li>
+<li>
+<p>方法：在colab页面中，按F12，找到<code>控制台</code>，输入以下代码</p>
+<pre class="highlight"><code class="">function ConnectButton()&#123;
+    console.log(&quot;Connect pushed&quot;); 
+    document.querySelector(&quot;#top-toolbar &gt; colab-connect-button&quot;).shadowRoot.querySelector(&quot;#connect&quot;).click() 
+&#125;
+setInterval(ConnectButton,60000);	//表示每60s自动点击一次，防止断开
+</code></pre>
+<p>执行了代码后，记下弹出的数字，那是intervalId，当想停止这段代码的执行时，只需要执行</p>
+<pre class="highlight"><code class="">clearInterval(intervalId)
+</code></pre>
+<p>就可以了，比如Id是340，那么就是clearInterval(340)。</p>
+</li>
+</ul>
+<h2 id="attributeerror-namespace-object-has-no-attribute-beta2"><a class="markdownIt-Anchor" href="#attributeerror-namespace-object-has-no-attribute-beta2"></a> AttributeError: ‘Namespace’ object has no attribute ‘beta2’</h2>
+<p><font color='red'>有Namespace</font>，说明是没有设置该参数</p>
+<h2 id="pytorch-dataloader报错valueerror-num_samples-should-be-a-positive-integer-value-but-got-num_samples0"><a class="markdownIt-Anchor" href="#pytorch-dataloader报错valueerror-num_samples-should-be-a-positive-integer-value-but-got-num_samples0"></a> PyTorch Dataloader报错：ValueError: num_samples should be a positive integer value, but got num_samples=0</h2>
+<ul>
+<li>
+<p><strong>报错原因</strong></p>
+<ul>
+<li>(myown)第一种：文件夹没有数据集</li>
+<li>第二种：</li>
+</ul>
+<pre class="highlight"><code class="">self.train_dataloader = DataLoader(train_dataset, batch_size=TrainOption.train_batch_size, shuffle=TRUE,
+num_workers=TrainOption.data_load_worker_num)
+
+shuffle的参数设置错误导致，因为已经有batch_sample了，就不需要shuffle来进行随机的sample了，所以在这里的shuffle应该设置为FALSE才对。
+</code></pre>
+<ul>
+<li>第三种：未使用batch_sample，因此不是上述原因。经查发现，由于两系统下目录地址的格式不同，因此直接从windows移植过来的代码不能在指定目录下正常读取数据，且代码未设置sample读取个数为0时报错，导致dataset返回长度为0，小于batch_size，因此出现上述报错。</li>
+</ul>
+</li>
+<li>
+<p><strong>小tip</strong>：出现上述问题时，如未使用batch_sample，可首先检查dataset.<strong>len</strong>()是否正常。因多次出现上述问题，故记录。</p>
+</li>
+</ul>
+<h2 id="attributeerror-module-torch-has-no-attribute-rfft"><a class="markdownIt-Anchor" href="#attributeerror-module-torch-has-no-attribute-rfft"></a> AttributeError: module ‘torch’ has no attribute ‘rfft’</h2>
+<ul>
+<li>
+<p>报错信息</p>
+<pre class="highlight"><code class="">  File &quot;/public/home/yangmx/code/DCD-GAN/models/dcd_model.py&quot;, line 279, in forward
+    x_fft = torch.rfft(x, signal_ndim=2, normalized=False, onesided=True)
+AttributeError: module 'torch' has no attribute 'rfft'
+</code></pre>
+</li>
+<li>
+<p>报错原因：<strong>pytorch版本高了</strong>：pytorch旧版本（1.7之前）中有一个函数torch.rfft()，但是新版本（1.8、1.9）中被移除了，添加了torch.fft.rfft()，</p>
+<p><img src="https://gitee.com/sunwarm2001/pic-go/raw/master/20221219172346.png" alt="image-20221219172339169" /></p>
+</li>
+<li>
+<p>解决办法</p>
+<ul>
+<li>
+<p>1、降低pytorch版本(conda可以，pip不行)</p>
+<pre class="highlight"><code class="">降低版本
+conda install pytorch=1.8.0 -c soumith 
+				OR
+卸载重装
+conda unstall pytorch
+conda install pytorch = 版本
+</code></pre>
+</li>
+<li>
+<p>2、不太想换版本，因此在报错文件中添加以下代码，让新版本函数的输入输出和老版本一样，这下可以完美适配不同版本了</p>
+<p><strong>要添加的代码</strong></p>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">try</span>:
+    <span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> irfft
+    <span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> rfft
+<span class="hljs-keyword">except</span> ImportError:
+    <span class="hljs-keyword">from</span> torch.fft <span class="hljs-keyword">import</span> irfft2
+    <span class="hljs-keyword">from</span> torch.fft <span class="hljs-keyword">import</span> rfft2
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rfft</span><span class="hljs-params">(x, d)</span>:</span>
+        t = rfft2(x, dim = (-d))
+        <span class="hljs-keyword">return</span> torch.stack((t.real, t.imag), <span class="hljs-number">-1</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">irfft</span><span class="hljs-params">(x, d, signal_sizes)</span>:</span>
+        <span class="hljs-keyword">return</span> irfft2(torch.complex(x[:,:,<span class="hljs-number">0</span>], x[:,:,<span class="hljs-number">1</span>]), s = signal_sizes, dim = (-d))
+
+</code></pre>
+<p>原来代码</p>
+<pre class="highlight"><code class="python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FrequencyLoss</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        super(FrequencyLoss, self).__init__()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, x, target)</span>:</span>
+        ...
+        x_fft = torch.rfft(x, signal_ndim=<span class="hljs-number">2</span>, normalized=<span class="hljs-literal">False</span>, onesided=<span class="hljs-literal">True</span>)
+        target_fft = torch.rfft(target, signal_ndim=<span class="hljs-number">2</span>, normalized=<span class="hljs-literal">False</span>, onesided=<span class="hljs-literal">True</span>)
+        
+       ...
+</code></pre>
+<p>更改之后的代码</p>
+<pre class="highlight"><code class="python"><span class="hljs-keyword">try</span>:
+    <span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> irfft
+    <span class="hljs-keyword">from</span> torch <span class="hljs-keyword">import</span> rfft
+<span class="hljs-keyword">except</span> ImportError:
+    <span class="hljs-keyword">from</span> torch.fft <span class="hljs-keyword">import</span> irfft2
+    <span class="hljs-keyword">from</span> torch.fft <span class="hljs-keyword">import</span> rfft2
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rfft</span><span class="hljs-params">(x, d)</span>:</span>
+        t = rfft2(x, dim = (-d))
+        <span class="hljs-keyword">return</span> torch.stack((t.real, t.imag), <span class="hljs-number">-1</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">irfft</span><span class="hljs-params">(x, d, signal_sizes)</span>:</span>
+        <span class="hljs-keyword">return</span> irfft2(torch.complex(x[:,:,<span class="hljs-number">0</span>], x[:,:,<span class="hljs-number">1</span>]), s = signal_sizes, dim = (-d))
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FrequencyLoss</span><span class="hljs-params">(nn.Module)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        super(FrequencyLoss, self).__init__()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">forward</span><span class="hljs-params">(self, x, target)</span>:</span>
+        ...
+        x_fft = torch.rfft(x, <span class="hljs-number">2</span>)
+        target_fft = torch.rfft(target, <span class="hljs-number">2</span>)
+       ...
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/422962341">旧版pytorch中torch.rfft和irfft在新版本中的对应</a></p>
 
         </div>
         <!-- .entry-content -->
@@ -487,7 +720,7 @@
               <div class="tag-cloud-title">
               </div>
               <div class="tag-cloud-tags">
-              <a href="/tags/c%E7%9B%98/" style="font-size: 10px; color: #f38181">c盘</a> <a href="/tags/hexo/" style="font-size: 20px; color: #95e1d3">hexo</a> <a href="/tags/latex/" style="font-size: 10px; color: #f38181">latex</a> <a href="/tags/markdown/" style="font-size: 10px; color: #f38181">markdown</a> <a href="/tags/python/" style="font-size: 10px; color: #f38181">python</a> <a href="/tags/pytorch/" style="font-size: 10px; color: #f38181">pytorch</a> <a href="/tags/typora/" style="font-size: 10px; color: #f38181">typora</a> <a href="/tags/vscode/" style="font-size: 10px; color: #f38181">vscode</a> <a href="/tags/web/" style="font-size: 10px; color: #f38181">web</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 10px; color: #f38181">图床</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px; color: #f38181">插件</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 10px; color: #f38181">服务器</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 20px; color: #95e1d3">模板</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px; color: #95e1d3">算法</a> <a href="/tags/%E7%BE%8E%E5%8C%96/" style="font-size: 10px; color: #f38181">美化</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 20px; color: #95e1d3">阅读</a>
+              <a href="/tags/IDM/" style="font-size: 10px; color: #f38181">IDM</a> <a href="/tags/c%E7%9B%98/" style="font-size: 10px; color: #f38181">c盘</a> <a href="/tags/git/" style="font-size: 10px; color: #f38181">git</a> <a href="/tags/hexo/" style="font-size: 20px; color: #95e1d3">hexo</a> <a href="/tags/latex/" style="font-size: 10px; color: #f38181">latex</a> <a href="/tags/markdown/" style="font-size: 10px; color: #f38181">markdown</a> <a href="/tags/python/" style="font-size: 15px; color: #c4b1aa">python</a> <a href="/tags/pytorch/" style="font-size: 15px; color: #c4b1aa">pytorch</a> <a href="/tags/typora/" style="font-size: 10px; color: #f38181">typora</a> <a href="/tags/vscode/" style="font-size: 10px; color: #f38181">vscode</a> <a href="/tags/web/" style="font-size: 10px; color: #f38181">web</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 10px; color: #f38181">图床</a> <a href="/tags/%E5%B0%8F%E5%A6%99%E6%8B%9B/" style="font-size: 10px; color: #f38181">小妙招</a> <a href="/tags/%E6%8F%92%E4%BB%B6/" style="font-size: 10px; color: #f38181">插件</a> <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 15px; color: #c4b1aa">服务器</a> <a href="/tags/%E6%A8%A1%E6%9D%BF/" style="font-size: 20px; color: #95e1d3">模板</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px; color: #95e1d3">算法</a> <a href="/tags/%E7%BE%8E%E5%8C%96/" style="font-size: 10px; color: #f38181">美化</a> <a href="/tags/%E9%98%85%E8%AF%BB/" style="font-size: 20px; color: #95e1d3">阅读</a>
               </div>
             </div>
 
@@ -607,7 +840,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2022 sunwarm2001<br>
+      &copy; 2023 sunwarm2001<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -671,7 +904,7 @@
     <p style="font-family: 'Ubuntu', sans-serif;">
       <span style="color: #b9b9b9;padding-left: 20px;">
         <!-- 全网站字数统计wordcount -->
-        <i class="fa fa-line-chart"  aria-hidden="true" style="color: #ff9999;display:inline-block"></i> 博客全站共: <span class="post-count" style="color:#ff9999;">10.4k</span>字</span>
+        <i class="fa fa-line-chart"  aria-hidden="true" style="color: #ff9999;display:inline-block"></i> 博客全站共: <span class="post-count" style="color:#ff9999;">16.3k</span>字</span>
         <!-- 不蒜子网页计数器 -->
         
         <span style="padding-left: 20px;"><i class="fa fa-fire" aria-hidden="true" style="color: #ff9999;display:inline-block"></i><span id="busuanzi_container_site_pv">总访问量： <span id="busuanzi_value_site_pv" style="color:#ff9999;"></span>次</span>
@@ -688,7 +921,7 @@
    <div class="footer-device">
     <p style="font-family: 'Ubuntu', sans-serif;">
         <span style="color: #b9b9b9;">
-          Copyright &copy; 2022
+          Copyright &copy; 2023
           &nbsp;<a style="color: #ff9999;display:inline-block"> sunwarm2001 </a>
           &nbsp;<i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> 
           &nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank" style="color: #ff9999;display:inline-block">Hexo</a>
